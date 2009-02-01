@@ -2,6 +2,8 @@
 
 int main()
 {
-	fprintf(stdout, "Hello, World!");
+	int a = 3;
+	printf("%d\n", a);
+	fprintf(stdout, "Hello, World!\n");
 	return(0);
 }
