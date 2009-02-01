@@ -108,5 +108,5 @@ FILE  *out,
 char  *label,   /* label string    */
 vec_t *v1)     /* vector to print */
 {
-	fprintf(out, "%s %8.3lf %8.3lf %8.3lf \n", label, v1->x, v1->y, v1->z);
+	fprintf(out, "%s %7.3lf %7.3lf %7.3lf \n", label, v1->x, v1->y, v1->z);
 }
