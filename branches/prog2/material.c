@@ -99,9 +99,13 @@ void material_dump(
 FILE *out,
 model_t *model)
 {
+	list_t *templist;
 	link_t *templink;
-	templink = model->mats->head;
 	material_t *tempmat;
+
+	templist = model->mats;
+	templink = templist->head;
+
 	while(templink != NULL)
 	{
 		tempmat = (material_t *)templink->item;
@@ -133,15 +137,19 @@ material_t *material_search(
 model_t *model,
 char    *name)     // e.g. orange
 {
-	link_t *templink;
-	material_t *tempmat;
-	templink = model->mats->head;
+	list_t templist = NULL;
+	link_t *templink = NULL;
+	material_t *tempmat = NULL;
+
+	templist = model->mats;
+	templink = templist->head;
+
 	while(templink->next != NULL)
 	{
 		tempmat = (material_t *)templink->item;
+
 		if( strcmp(tempmat->name, name) == 0 )
 			return tempmat;
-		
 
 		templink = templink->next;
 	}
