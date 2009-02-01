@@ -66,7 +66,7 @@ FILE       *in,
 model_t    *model,
 int        attrmax)
 {
-	material_t *mat;
+	material_t *mat = NULL;
 	char attrname[NAME_LEN];
 	int count;
 	
@@ -99,9 +99,9 @@ void material_dump(
 FILE *out,
 model_t *model)
 {
-	list_t *templist;
-	link_t *templink;
-	material_t *tempmat;
+	list_t *templist = NULL;
+	link_t *templink = NULL;
+	material_t *tempmat = NULL;
 
 	templist = model->mats;
 	templink = templist->head;
@@ -137,7 +137,7 @@ material_t *material_search(
 model_t *model,
 char    *name)     // e.g. orange
 {
-	list_t templist = NULL;
+	list_t *templist = NULL;
 	link_t *templink = NULL;
 	material_t *tempmat = NULL;
 
