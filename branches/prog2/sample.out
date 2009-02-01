@@ -1,0 +1,32 @@
+material     green 
+ambient        0.0   0.0   0.0 
+diffuse        0.0   5.0   0.0 
+specular       0.0   1.0   0.0 
+
+material     yellow 
+ambient        2.0   1.5   0.0 
+diffuse        5.0   4.0   0.0 
+specular       0.0   0.0   0.0 
+
+material     orange 
+ambient        5.0   4.0   0.1 
+diffuse        5.0   4.0   0.0 
+specular       0.0   0.0   0.0 
+
+material     cyan 
+ambient        1.0   4.0   4.0 
+diffuse        1.0   5.0   7.0 
+specular       0.0   0.0   0.0 
+
+material     gray 
+ambient        2.0   2.0   2.0 
+diffuse        0.0   0.0   0.0 
+specular       0.0   0.0   0.0 
+
+material     red 
+ambient        0.0   0.0   0.0 
+diffuse        6.0   0.0   0.0 
+specular       0.0   0.0   0.0 
+
+32456123 
+ 5.0  4.0  0.1 

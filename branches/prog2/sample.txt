@@ -1,0 +1,34 @@
+
+material green
+{
+   specular 0 1 0
+   diffuse 0  5 0
+}
+
+material yellow
+{
+   diffuse  5  4  0
+   ambient  2  1.5 0
+}
+
+material orange
+{
+   ambient 5 4 0.1
+   diffuse 5 4  0
+}
+
+material cyan
+{
+   ambient 1 4 4
+   diffuse 1 5 7
+}
+
+material gray
+{
+   ambient 2 2 2
+}
+material red
+{
+   diffuse 6 0 0
+}
+
