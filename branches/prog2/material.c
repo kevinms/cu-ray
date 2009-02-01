@@ -144,7 +144,7 @@ char    *name)     // e.g. orange
 	templist = model->mats;
 	templink = templist->head;
 
-	while(templink->next != NULL)
+	while(templink != NULL)
 	{
 		tempmat = (material_t *)templink->item;
 
