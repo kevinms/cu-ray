@@ -1,5 +1,4 @@
 #summary A few features that we would like to be implemented
-== Features to be Implemented ==
 
 || *Status* || *Description* ||
 || _Not Started_ || Implement a polygon object type and hit function ||
