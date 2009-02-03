@@ -1,0 +1,9 @@
+#summary A few features that we would like to be implemented
+== Features to be Implemented ==
+
+|| *Status* || *Description* ||
+|| _Not Started_ || Implement a polygon object type and hit function ||
+|| _Not Started_ || Python Blender model to scene file format exporter ||
+|| _Not Started_ || Transparency ||
+|| _Not Started_ || Depth of Field ||
+|| _Not Started_ || Blender Python script to render animations to a set of ppm's ||
