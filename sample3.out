@@ -1,0 +1,55 @@
+camera       cam1
+pixel_dim      640   480 
+world_dim      8.0   6.0 
+view_point     4.0   3.0   6.0
+
+material     green 
+ambient        0.0   0.0   0.0 
+diffuse        0.0   5.0   0.0 
+specular       0.0   0.0   0.0 
+
+material     yellow 
+ambient        0.0   0.0   0.0 
+diffuse        5.0   4.0   0.0 
+specular       0.0   0.0   0.0 
+
+material     purple 
+ambient        0.0   0.0   0.0 
+diffuse        4.0   0.0   7.0 
+specular       0.0   0.0   0.0 
+
+material     cyan 
+ambient        0.0   0.0   0.0 
+diffuse        1.0   5.0   7.0 
+specular       0.0   0.0   0.0 
+
+material     gray 
+ambient        0.0   0.0   0.0 
+diffuse        2.0   2.0   2.0 
+specular       0.0   0.0   0.0 
+
+material     red 
+ambient        0.0   0.0   0.0 
+diffuse        6.0   0.0   0.0 
+specular       0.0   0.0   0.0 
+
+plane        rightwall 
+material     yellow 
+normal        -1.0   0.0   0.2 
+point          7.0   0.0   0.0 
+
+plane        leftwall 
+material     green 
+normal         1.0   0.0   0.2 
+point          1.0   0.0   0.0 
+
+sphere       left_sphere 
+material     cyan 
+center         2.0   4.0  -4.0 
+radius         2.0
+
+sphere       right_sphere 
+material     purple 
+center         6.0   4.0  -4.0 
+radius         2.0
+
