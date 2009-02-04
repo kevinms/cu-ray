@@ -1,4 +1,5 @@
 #summary how to setup a scene
+#labels Featured
 
 ----
 *camera*
