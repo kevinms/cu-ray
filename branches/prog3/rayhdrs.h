@@ -3,28 +3,28 @@
 
 /* == camera.c == */
 
-void cam_getdir(
-cam_t    *cam,
+void camera_getdir(
+camera_t    *cam,
 int      x,
 int      y,
 vec_t   *dir);
 
-void cam_setpix(
-cam_t    *cam,
+void camera_setpix(
+camera_t    *cam,
 int      x,
 int      y,
 drgb_t   *pix);
 
 /* Initialize viewpoint data */
 
-cam_t *cam_init(
+camera_t *camera_init(
 FILE *in);
 
 /* Dump the camera data */
 
-void cam_dump(
+void camera_dump(
 FILE   *out,
-cam_t *cam);
+camera_t *cam);
 
 /* == list.c == */
 

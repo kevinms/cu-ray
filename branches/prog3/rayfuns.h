@@ -4,7 +4,7 @@
 /* return the index of the target string in the   */
 /* table of string pointers. return -1 on failure */
 
-static inline int getndx(
+static inline int table_lookup(
 char *idtab[],
 int  count,
 char *target)
