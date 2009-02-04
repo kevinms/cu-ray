@@ -1,4 +1,5 @@
 #summary Listing of features and their progress.
+#labels Featured
 
 === Key Features ===
 || *Status* || *Description* ||
