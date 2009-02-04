@@ -1,0 +1,23 @@
+Listing of features and their progress.
+
+== Key Features ==
+#summary features that will be implemented
+
+|| *Status* || *Description* ||
+|| _Finished_ || Vector operations library ||
+|| _Finished_ || Linked lists data type and operations library ||
+|| _Finished_ || Camera type and loader||
+|| _Finished_ || Material type and loader ||
+|| _Finished_ || Plane object type and hit function ||
+|| _Started_ || Sphere object type and hit function ||
+|| _Not Started_ || Anti-aliasing ||
+
+== Extra Features ==
+#summary features that we would like to be implemented
+
+|| *Status* || *Description* ||
+|| _Not Started_ || Polygon object type and hit function ||
+|| _Not Started_ || Python Blender model to scene file format exporter ||
+|| _Not Started_ || Transparency ||
+|| _Not Started_ || Depth of Field ||
+|| _Not Started_ || Python Blender script to render animations to a set of ppm's ||
