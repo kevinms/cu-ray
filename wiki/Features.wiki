@@ -1,4 +1,4 @@
-Listing of features and their progress.
+#summary Listing of features and their progress.
 
 === Key Features ===
 || *Status* || *Description* ||
