@@ -50,8 +50,8 @@ model_t *model)
 	{
 		obj = (object_t *)templink->item;
 
-		fprintf(out, "%s\t%s", obj->objtype, obj->objname);
-		fprintf(out, "material\t%s\n", obj->mat->name);
+		fprintf(out, "%s       %s\n", obj->objtype, obj->objname);
+		fprintf(out, "material     %s\n", obj->mat->name);
 		obj->dumper(out, obj);
 		templink = templink->next;
 	}
