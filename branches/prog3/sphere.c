@@ -80,10 +80,10 @@ object_t *obj)
 	sphere_t *sph;
 	sph = (sphere_t *)obj->priv;
 
-        fprintf(stderr, "center %10.1lf %5.1lf %5.1lf \n",
+        fprintf(stderr, "center  %10.1lf %5.1lf %5.1lf \n",
                         sph->center.x, 
                         sph->center.y, 
                         sph->center.z);
-        fprintf(stderr, "radius %10.1lf \n",
+        fprintf(stderr, "radius  %10.1lf \n\n",
                         sph->radius); 
 }
