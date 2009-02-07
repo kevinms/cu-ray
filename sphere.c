@@ -47,6 +47,9 @@ int attrmax)
 {
 	sphere_t *sph;
 	object_t *obj;
+	char attrname[NAME_LEN];
+	int count;
+
 	obj = object_init(in, model);
 	sph = (sphere_t *)malloc(sizeof(sphere_t));
 	assert(sph != NULL);
@@ -64,21 +67,23 @@ int attrmax)
 	assert(attrname[0] == '}');
 
 	obj->priv = (void *)sph;
-	obj->objtype = "sphere";
+	sprintf(obj->objtype, "sphere");
 	obj->dumper = sphere_dump;
+
+	return obj;
 }
 
 void sphere_dump(
 FILE *out,
 object_t *obj)
 {
-	sphere_t sph;
+	sphere_t *sph;
 	sph = (sphere_t *)obj->priv;
 
         fprintf(stderr, "center %10.1lf %5.1lf %5.1lf \n",
                         sph->center.x, 
                         sph->center.y, 
                         sph->center.z);
-        fprintf(stderr, "radius %10.1lf %5.1lf %5.1lf \n",
+        fprintf(stderr, "radius %10.1lf \n",
                         sph->radius); 
 }
