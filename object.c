@@ -27,7 +27,7 @@ model_t     *model)
    assert(count == 0);
    count = fscanf(in, "%s", buf);
    assert(count == 1);
-   mat = material_find(model, buf);
+   mat = material_search(model, buf);
    assert(mat != NULL);
    obj->mat = mat;
    list_add(model->objs, (void *)obj);
@@ -39,7 +39,7 @@ void object_dump(
 FILE *out,
 model_t *model)
 {
-	obj = model->objs;
+	object_t *obj = model->objs;
 
 	while(obj != NULL)
 	{
