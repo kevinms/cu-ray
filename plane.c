@@ -6,7 +6,6 @@ static char *pln_attrs[] = { "normal", "point" };
 static inline void pln_load_point(FILE *in, plane_t *pln)
 {
    int count;
-   assert(pln->cookie == OBJ_COOKIE);
    count = fscanf(in, "%lf %lf %lf", &pln->point.z, 
 					&pln->point.y, &pln->point.z);
 /* ensure that the required number of values were found */
@@ -16,7 +15,6 @@ static inline void pln_load_point(FILE *in, plane_t *pln)
 static inline void pln_load_normal(FILE *in, plane_t *pln)
 {
    int count;
-   assert(pln->cookie == OBJ_COOKIE);
    count = fscanf(in, "%lf %lf %lf", &pln->normal.z, 
 					&pln->normal.y, &pln->normal.z);
 /* ensure that the required number of values were found */
@@ -48,6 +46,9 @@ FILE *in,
 model_t *model,
 int attrmax)
 {
+    char attrname[NAME_LEN];
+    int count;
+	
 	plane_t *pln;
 	object_t *obj;
 	obj = object_init(in, model);
@@ -60,22 +61,24 @@ int attrmax)
 
 	while( (count == 1) && (attrname[0] != '}') )
 	{
-		assert(plane_attr_load(in, mat, attrname) == 0);
+		assert(plane_attr_load(in, pln, attrname) == 0);
 		*attrname = 0;
 		fscanf(in, "%s", attrname);
 	}
 	assert(attrname[0] == '}');
 
 	obj->priv = (void *)pln;
-	obj->objtype = "plane";
+	sprintf(obj->objtype, "plane");
 	obj->dumper = plane_dump;
+	
+	return obj;
 }
 
 void plane_dump(
 FILE *out,
 object_t *obj)
 {
-	plane_t pln;
+	plane_t *pln;
 	pln = (plane_t *)obj->priv;
         fprintf(stderr, "normal %10.1lf %5.1lf %5.1lf \n",
                         pln->normal.x, 
