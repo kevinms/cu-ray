@@ -1,3 +1,15 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 9, 2009
+ * Program 3
+ *
+ * Description
+ * This program alocates memory for a plane structure and parses and
+ * loads the data for the structure.  Also a plane_dump() function.
+ ***********************************************************************/
+
 #include "ray.h"
 
 static char *pln_attrs[] = { "point", "normal" };

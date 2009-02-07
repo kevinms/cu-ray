@@ -7,7 +7,7 @@
  *
  * Description
  * This program alocates memory for a object structure and parses and
- * loads the data for the structure.  Also a material_dump() function.
+ * loads the data for the structure.  Also a object_dump() function.
  ***********************************************************************/
 
 #include "ray.h"
