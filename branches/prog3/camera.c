@@ -112,7 +112,7 @@ cam_t *cam)
    fprintf(out, "%-12s %5.1lf %5.1lf\n", "world_dim", 
 		cam->world_dim[0], cam->world_dim[1]);
 
-   fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "view_point", 
+   fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n\n", "view_point", 
 		cam->view_point.x, cam->view_point.y, cam->view_point.z);
 }
 
