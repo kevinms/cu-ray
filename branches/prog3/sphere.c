@@ -66,7 +66,7 @@ int attrmax)
 	assert(attrname[0] == '}');
 
 	obj->priv = (void *)sph;
-	obj->objtype = "plane";
+	obj->objtype = "sphere";
 	obj->dumper = sphere_dump;
 }
 
