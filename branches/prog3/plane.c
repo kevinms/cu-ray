@@ -1,12 +1,12 @@
 #include "ray.h"
 
-static char *pln_attrs[] = { "normal", "point" };
+static char *pln_attrs[] = { "point", "normal" };
 #define NUM_ATTRS (sizeof(pln_attrs) / sizeof(char *))
 
 static inline void pln_load_point(FILE *in, plane_t *pln)
 {
    int count;
-   count = fscanf(in, "%lf %lf %lf", &pln->point.z, 
+   count = fscanf(in, "%lf %lf %lf", &pln->point.x, 
 					&pln->point.y, &pln->point.z);
 /* ensure that the required number of values were found */
    assert(count == 3);
@@ -15,7 +15,7 @@ static inline void pln_load_point(FILE *in, plane_t *pln)
 static inline void pln_load_normal(FILE *in, plane_t *pln)
 {
    int count;
-   count = fscanf(in, "%lf %lf %lf", &pln->normal.z, 
+   count = fscanf(in, "%lf %lf %lf", &pln->normal.x, 
 					&pln->normal.y, &pln->normal.z);
 /* ensure that the required number of values were found */
    assert(count == 3);
