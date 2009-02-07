@@ -67,7 +67,7 @@ int attrmax)
 
 	obj->priv = (void *)sph;
 	obj->objtype = "plane";
-	obj->dumper = 
+	obj->dumper = sphere_dump;
 }
 
 void sphere_dump(
