@@ -47,11 +47,11 @@ static inline void cam_attr_load(FILE *in, cam_t *cam, char *attr)
    assert(cam->cookie == CAM_COOKIE);
 
 /* Perform table lookup and ensure it worked */
-   ndx = table_index(cam_attrs, NUM_ATTRS, attr);
+   ndx = table_lookup(cam_attrs, NUM_ATTRS, attr);
    assert(ndx >= 0);
 
 /* Remember which attribute was found */
-   cam->attrmask |= 1 << ndx;
+   //cam->attrmask |= 1 << ndx;
    if (ndx == 0)
       cam_load_pixeldim(in, cam);
    else if (ndx == 1)
@@ -87,7 +87,7 @@ void camera_init(FILE *in, model_t *model, int attrmax)
       }
 
    assert(buf[0] == '}');
-   assert(cam->attrmask == CAM_MASK);
+   //assert(cam->attrmask == CAM_MASK);
 
    cam->pixmap = malloc(cam->pixel_dim[0] * 
 		cam->pixel_dim[1] * sizeof(irgb_t));
