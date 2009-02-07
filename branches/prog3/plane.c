@@ -80,12 +80,12 @@ object_t *obj)
 {
 	plane_t *pln;
 	pln = (plane_t *)obj->priv;
-        fprintf(stderr, "normal %10.1lf %5.1lf %5.1lf \n",
+        fprintf(stderr, "normal %11.1lf %5.1lf %5.1lf \n",
                         pln->normal.x, 
                         pln->normal.y, 
                         pln->normal.z);
 						
-        fprintf(stderr, "point %10.1lf %5.1lf %5.1lf \n",
+        fprintf(stderr, "point %12.1lf %5.1lf %5.1lf \n\n",
                         pln->point.x, 
                         pln->point.y, 
                         pln->point.z);
