@@ -6,8 +6,7 @@ static char *sph_attrs[] = { "center", "radius" };
 static inline void sph_load_center(FILE *in, sphere_t *sph)
 {
    int count;
-   assert(sph->cookie == OBJ_COOKIE);
-   count = fscanf(in, "%lf %lf %lf", &sph->center.z, 
+   count = fscanf(in, "%lf %lf %lf", &sph->center.x, 
 					&sph->center.y, &sph->center.z);
 /* ensure that the required number of values were found */
    assert(count == 3);
@@ -16,7 +15,6 @@ static inline void sph_load_center(FILE *in, sphere_t *sph)
 static inline void sph_load_radius(FILE *in, sphere_t *sph)
 {
    int count;
-   assert(sph->cookie == OBJ_COOKIE);
    count = fscanf(in, "%lf", &sph->radius);
 /* ensure that the required number of values were found */
    assert(count == 1);
@@ -59,7 +57,7 @@ int attrmax)
 
 	while( (count == 1) && (attrname[0] != '}') )
 	{
-		assert(sphere_attr_load(in, mat, attrname) == 0);
+		assert(sphere_attr_load(in, sph, attrname) == 0);
 		*attrname = 0;
 		fscanf(in, "%s", attrname);
 	}
