@@ -4,27 +4,29 @@
 /* == camera.c == */
 
 void camera_getdir(
-camera_t    *cam,
+cam_t    *cam,
 int      x,
 int      y,
 vec_t   *dir);
 
 void camera_setpix(
-camera_t    *cam,
+cam_t    *cam,
 int      x,
 int      y,
 drgb_t   *pix);
 
 /* Initialize viewpoint data */
 
-camera_t *camera_init(
-FILE *in);
+void   camera_init(
+FILE    *in,
+model_t *model,
+int     attrmax);   /* ignore this */
 
 /* Dump the camera data */
 
 void camera_dump(
 FILE   *out,
-camera_t *cam);
+cam_t *cam);
 
 /* == list.c == */
 
@@ -69,7 +71,7 @@ model_t *model);
 
 /* Try to locate a material by name */
 
-material_t *material_find(
+material_t *material_search(
 model_t *model,
 char    *name);
 
