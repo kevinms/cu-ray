@@ -81,6 +81,7 @@ int        attrmax)
 	assert(attrname[0] == '{');
 
 	count = fscanf(in, "%s", attrname);
+	assert(count == 1 && attrname[0] != '}');
 	while( (count == 1) && (attrname[0] != '}') )
 	{
 		assert(material_attr_load(in, mat, attrname) == 0);
