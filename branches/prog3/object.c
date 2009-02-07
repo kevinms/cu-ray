@@ -39,13 +39,20 @@ void object_dump(
 FILE *out,
 model_t *model)
 {
-	object_t *obj = model->objs;
+	list_t *templist;
+	link_t *templink;
+	object_t *obj;
 
-	while(obj != NULL)
+	templist = model->objs;
+	templink = templist->head;
+
+	while(templink != NULL)
 	{
+		obj = (object_t *)templink->item;
+
 		fprintf(out, "%s\t%s", obj->objtype, obj->objname);
 		fprintf(out, "material\t%s\n", obj->mat->name);
 		obj->dumper(out, obj);
-		obj = obj->next;
+		templink = templink->next;
 	}
 }
