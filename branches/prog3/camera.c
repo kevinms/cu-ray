@@ -1,3 +1,15 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 9, 2009
+ * Program 3
+ *
+ * Description
+ * This program alocates memory for a camera structure and parses and
+ * loads the data for the structure.  Also a camera_dump() function.
+ ***********************************************************************/
+
 /* camera.c */
 
 /* This module contains the functions that involve the camera */
