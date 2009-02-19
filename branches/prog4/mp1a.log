@@ -1,0 +1,20 @@
+camera       cam1
+pixel_dim      800   600 
+world_dim      8.0   6.0 
+view_point     4.0   3.0   3.0
+
+material     cyan 
+ambient        0.0   4.0   6.0 
+diffuse        0.0   0.0   0.0 
+specular       0.0   0.0   0.0 
+
+material     yellow 
+ambient        5.0   4.0   0.0 
+diffuse        0.0   0.0   0.0 
+specular       0.0   0.0   0.0 
+
+plane        backwall 
+material     cyan 
+normal         0.0   0.0   1.0 
+point          1.0   0.0  -4.0 
+
