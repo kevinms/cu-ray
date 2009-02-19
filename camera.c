@@ -2,8 +2,8 @@
  * Kevin Matthew Smith && Burns John Hudson
  * kevin4 && burnsh
  * CpSc 102 Section 003
- * February 9, 2009
- * Program 3
+ * February 24, 2009
+ * Program 4
  *
  * Description
  * This program alocates memory for a camera structure and parses and
