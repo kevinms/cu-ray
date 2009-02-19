@@ -2,8 +2,8 @@
  * Kevin Matthew Smith && Burns John Hudson
  * kevin4 && burnsh
  * CpSc 102 Section 003
- * February 9, 2009
- * Program 3
+ * February 24, 2009
+ * Program 4
  *
  * Description
  * This program alocates memory for a plane structure and parses and
@@ -101,4 +101,47 @@ object_t *obj)
                         pln->point.x, 
                         pln->point.y, 
                         pln->point.z);
+}
+
+double plane_hits(
+vec_t    *base,    /* ray base (the viewpoint) */
+vec_t    *dir,     /* ray direction unit vector */
+object_t *obj)     /* the plane object          */
+{
+	plane_t *plane;
+	double distance;
+	double ndotv;
+	double ndotd;
+	double parcheck;
+	vec_t hit, scaledvec;
+
+	plane = (plane_t *)obj->priv;
+
+	plane->ndotq = vec_dot(&plane->normal, &plane->point);
+	ndotv = vec_dot(&plane->normal, base);
+	ndotd = vec_dot(&plane->normal, dir);
+
+	distance = (plane->ndotq - ndotv)/(ndotd);
+
+	if(floor(distance) < 0.0)
+	{
+		return(-1);
+	}
+
+	vec_scale(distance, dir, &scaledvec);
+	vec_sum(base, &scaledvec, &hit);
+
+	parcheck = vec_dot(&plane->normal, dir);
+
+	if ( floor(hit.z) <= 0.0 && floor(parcheck) != 0.0)
+	{
+		vec_copy(&hit, &obj->hitloc);
+		vec_copy(&plane->normal, &obj->normal);
+
+		return(distance);
+	}
+	else
+	{
+		return(-1);
+	}
 }
