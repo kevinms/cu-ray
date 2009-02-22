@@ -169,3 +169,14 @@ char    *name)     // e.g. orange
 	}
 	return NULL;
 }
+
+void material_getamb(
+object_t *obj,
+drgb_t   *dest)
+{
+   material_t *mat = obj->mat;
+   assert(obj->cookie == OBJ_COOKIE);
+   assert(mat->cookie == MAT_COOKIE);
+   pix_copy(&mat.ambient, dest);
+}
+

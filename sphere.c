@@ -81,6 +81,7 @@ int attrmax)
 	obj->priv = (void *)sph;
 	sprintf(obj->objtype, "sphere");
 	obj->dumper = sphere_dump;
+	obj->hits = sphere_hits;
 
 	return obj;
 }
@@ -98,4 +99,65 @@ object_t *obj)
                         sph->center.z);
         fprintf(stderr, "radius  %10.1lf \n\n",
                         sph->radius); 
+}
+
+double hits_sphere(
+vec_t    *base,     /* ray base (the viewpoint) */
+vec_t    *dir,      /* ray direction unit vector */
+object_t *obj)      /* the sphere object          */
+{
+	double a, b, c, t, d;
+	vec_t vloc;
+	sphere_t *sph;
+
+	sph = (sphere_t *)obj->priv;
+
+	vec_diff(&sph->center, base, &vloc);
+	a = vec_dot(dir, dir);
+	b = 2.0 * vec_dot(&vloc, dir);
+	c = vec_dot(&vloc, &vloc) - (sph->radius * sph->radius);
+
+	d = b * b - 4 * a * c;
+	if(d > 0.0)
+	{
+		t = (b * (-1.0) - sqrt(d)) / (2 * a);
+		return(t);
+	}
+	else
+	{
+		return(-1);
+	}
+}
+
+double sphere_hits(
+vec_t    *base,     /* ray base (the viewpoint) */
+vec_t    *dir,      /* ray direction unit vector */
+object_t *obj)      /* the sphere object          */
+{
+	double t;
+	vec_t hit, sdir, hitdir;
+	sphere_t *sph;
+
+	sph = (sphere_t *)obj->priv;
+
+	t = hits_sphere(base, dir, obj);
+	if(t == -1)
+	{
+		return(-1);
+	}
+
+	vec_scale(t, dir, &sdir);
+	vec_sum(base, &sdir, &hit);
+
+	if(hit.z < 0.0)
+	{
+		vec_copy(&hit, &obj->hitloc);
+		vec_diff(&sph->center, &hit, &hitdir);
+		vec_unit(&hitdir, &obj->normal);
+		return(t);
+	}
+	else
+	{
+		return(-1);
+	}
 }

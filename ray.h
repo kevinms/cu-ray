@@ -125,8 +125,15 @@ typedef struct plane_type
    void    *priv;         /* Data for specialized types  */
 }  plane_t;
 
-/* A sphere */
+/* Tiled plane... descendant of plane */
+typedef struct tplane_type
+{
+   char       matname[NAME_LEN];
+   material_t *background;   /* background color */
+   double     dimension[2]; /* dimension of tiles */
+} tplane_t;
 
+/* A sphere */
 typedef struct sphere_type
 {
    vec_t      center;     /* Location of the center */

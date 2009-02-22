@@ -1,0 +1,130 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 24, 2009
+ * Program 4
+ *
+ * Description
+ * This program alocates memory for a plane structure and parses and
+ * loads the data for the structure.  Also a plane_dump() function.
+ ***********************************************************************/
+
+#include "ray.h"
+
+static char *tpln_attrs[] = { "dimension", "altmaterial" };
+#define NUM_ATTRS (sizeof(tpln_attrs) / sizeof(char *))
+
+static inline void tpln_load_dimension(FILE *in, tplane_t *tpln)
+{
+   int count;
+   count = fscanf(in, "%lf %lf", &tpln->dimension[0], &tpln->dimension[1]);
+/* ensure that the required number of values were found */
+   assert(count == 2);
+}
+
+static inline void tpln_load_altmaterial(
+ FILE *in, tplane_t *tpln, model_t *model)
+{
+   int count;
+   count = fscanf(in, "%s", &tpln->matname);
+   tpln->background = material_search(model, matname);
+/* ensure that the required number of values were found */
+   assert(count == 1);
+}
+
+static int tplane_attr_load(
+FILE      *in,
+tplane_t *tpln,       /* material to be filled in */
+char      *attrname
+model_t *model)
+{
+    int ndx;
+
+    ndx = table_lookup(tpln_attrs, NUM_ATTRS, attrname);
+    assert(ndx >= 0);
+    switch(ndx)
+    {
+        case 0:
+            tpln_load_dimension(in, tpln); return 0;
+        case 1:
+            tpln_load_altmaterial(in, tpln, model); return 0;
+        default:
+            return -1;
+    }
+}
+
+object_t *tplane_init(
+FILE     *in,
+model_t *model)
+{
+    char attrname[NAME_LEN];
+    int count;
+	object_t *obj;
+    tplane_t *tpln;
+
+    tpln = (tplane_t *)malloc(sizeof(tplane_t));
+    assert(tpln != NULL);
+    memset(tpln, 0, sizeof(tpln));
+
+	obj = plane_init(in, model, 0);
+	obj->priv->priv = (void *)tpln;
+
+    count = fscanf(in, "%s", attrname);
+    assert(count == 1 && attrname[0] != '}');
+
+    while( (count == 1) && (attrname[0] != '}') )
+    {
+        assert(plane_attr_load(in, pln, attrname, model) == 0);
+        *attrname = 0;
+        fscanf(in, "%s", attrname);
+    }
+    assert(attrname[0] == '}');
+
+    obj->getamb = tplane_amb;
+    obj->dumper = tplane_dump;
+    sprintf(obj->objtype, "tiled plane");
+    
+    return obj;
+}
+
+void tplane_amb(
+object_t *obj,
+drgb_t *value)
+{
+	plane_t pln = obj->priv;
+	tplane_t tpln = pln->priv;
+	material_t mat = tpln->background;
+	
+
+	int foreground = tplane_foreground(obj);
+	if(foreground)
+	{
+		material_getam(obj, value);
+	}
+	else
+	{
+		value->r = mat->ambient.r;
+		value->g = mat->ambient.g;
+		value->b = mat->ambient.b;
+	}
+}
+
+void tplane_foreground(
+object_t *obj)
+{
+	
+}
+
+static void tplane_dump(
+FILE          *out,
+object_t *obj)
+{
+	plane_dump(out, obj);
+	tpln = (tplane_t *)obj->priv->priv;
+
+	fprintf(stderr, "dimension %8.1lf %5.1lf %5.1f \n", 
+			tpln->dimension[0], tplan->dimension[1]);
+	fprintf(stderr, "altmaterial       %s \n", 
+			tpln->background->name);
+}
