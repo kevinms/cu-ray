@@ -82,6 +82,7 @@ int attrmax)
 	obj->priv = (void *)pln;
 	sprintf(obj->objtype, "plane");
 	obj->dumper = plane_dump;
+	obj->hits = plane_hits;
 	
 	return obj;
 }
@@ -123,7 +124,7 @@ object_t *obj)     /* the plane object          */
 
 	distance = (plane->ndotq - ndotv)/(ndotd);
 
-	if(floor(distance) < 0.0)
+	if(distance < 0.0)
 	{
 		return(-1);
 	}
@@ -133,7 +134,7 @@ object_t *obj)     /* the plane object          */
 
 	parcheck = vec_dot(&plane->normal, dir);
 
-	if ( floor(hit.z) <= 0.0 && floor(parcheck) != 0.0)
+	if(hit.z <= 0.0 && parcheck != 0.0)
 	{
 		vec_copy(&hit, &obj->hitloc);
 		vec_copy(&plane->normal, &obj->normal);
