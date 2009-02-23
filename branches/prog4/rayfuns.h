@@ -26,18 +26,18 @@ drgb_t  *v1,
 drgb_t  *v2,
 drgb_t  *v3)
 {
-    v3->x = v1->x + v2->x;
-    v3->y = v1->y + v2->y;
-    v3->z = v1->z + v2->z;
+    v3->r = v1->r + v2->r;
+    v3->g = v1->g + v2->g;
+    v3->b = v1->b + v2->b;
 }
 
 static inline void drgb_copy(
 drgb_t *v1,
 drgb_t *v2)
 {
-    v2->x = v1->x;
-    v2->y = v1->y;
-    v2->z = v1->z;
+    v2->r = v1->r;
+    v2->g = v1->g;
+    v2->b = v1->b;
 }
 
 static inline void drgb_scale(
@@ -45,8 +45,8 @@ double s,
 drgb_t  *v1,
 drgb_t  *v2)
 {
-    v2->x = v1->x * s;
-    v2->y = v1->y * s;
-    v2->z = v1->z * s;
+    v2->r = v1->r * s;
+    v2->g = v1->g * s;
+    v2->b = v1->b * s;
 }
 
