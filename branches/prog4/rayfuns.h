@@ -21,6 +21,32 @@ char *target)
    return(rc);
 }
 
+static inline void drgb_sum(
+drgb_t  *v1,
+drgb_t  *v2,
+drgb_t  *v3)
+{
+    v3->x = v1->x + v2->x;
+    v3->y = v1->y + v2->y;
+    v3->z = v1->z + v2->z;
+}
 
+static inline void drgb_copy(
+drgb_t *v1,
+drgb_t *v2)
+{
+    v2->x = v1->x;
+    v2->y = v1->y;
+    v2->z = v1->z;
+}
 
+static inline void drgb_scale(
+double s,
+drgb_t  *v1,
+drgb_t  *v2)
+{
+    v2->x = v1->x * s;
+    v2->y = v1->y * s;
+    v2->z = v1->z * s;
+}
 

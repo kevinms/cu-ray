@@ -59,7 +59,7 @@ model_t *model,
 int attrmax)
 {
     char attrname[NAME_LEN];
-    int count;
+    int count, attrp;
 	
 	plane_t *pln;
 	object_t *obj;
@@ -75,10 +75,17 @@ int attrmax)
 	{
 		assert(plane_attr_load(in, pln, attrname) == 0);
 		*attrname = 0;
+		attrp++;
+		if(attrmax == 2 && attrp == 2)
+		{
+			break;
+		}
 		fscanf(in, "%s", attrname);
 	}
-	assert(attrname[0] == '}');
-
+	if(attrmax != 0)
+	{
+		assert(attrname[0] == '}');
+	}
 	obj->priv = (void *)pln;
 	sprintf(obj->objtype, "plane");
 	obj->dumper = plane_dump;
