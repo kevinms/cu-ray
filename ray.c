@@ -36,3 +36,40 @@ double   *retdist)     /* return dist to hit point here */
 	*retdist = mindist;	
     return(minobj);
 }
+
+/**/
+/* This function traces a single ray and returns the  */
+/* composite intensity of the light it encounters     */
+void ray_trace(
+model_t *model,
+vec_t    *base,        /* location of viewer or previous hit */
+vec_t    *dir,         /* unit vector in direction of object */
+drgb_t   *dpix,        /* pixel     return location */
+double   total_dist,   /* distance ray has traveled so far */
+object_t *last_hit)    /* most recently hit object */
+{
+	object_t *closest;
+	double   mindist;
+	drgb_t   thisray = {0.0, 0.0, 0.0};
+
+	closest = find_closest_object(model->objs, base, dir, NULL, mindist);
+	if(closest != NULL)
+	{
+		#ifdef DBG_HIT
+			fprintf(stderr, "%-12s HIT:(%5.1lf, %5.1lf, %5.1lf)",
+				closest->objname,
+				closest->hitloc.x, closest->hitloc.y,
+				closest->hitloc.z);
+		#endif
+
+		closest->getamb(closest, thisray);
+	}
+
+	drgb_scale(1.0/mindist, thisray, thisray);
+	drgb_sum(thisray, dpix, dpix);
+
+	#ifdef DBG_DRGB
+		fprintf(stderr, "%-12s DRGB:(%5.2lf, %5.2lf, %5.2lf)",
+			closest->objname, pix->r, pix->g, pix->b);
+	#endif
+}

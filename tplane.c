@@ -67,7 +67,7 @@ model_t *model)
     assert(tpln != NULL);
     memset(tpln, 0, sizeof(tpln));
 
-	obj = plane_init(in, model, 0);
+	obj = plane_init(in, model, 2);
 	obj->priv->priv = (void *)tpln;
 
     count = fscanf(in, "%s", attrname);
@@ -75,7 +75,7 @@ model_t *model)
 
     while( (count == 1) && (attrname[0] != '}') )
     {
-        assert(plane_attr_load(in, pln, attrname, model) == 0);
+        assert(tplane_attr_load(in, tpln, attrname, model) == 0);
         *attrname = 0;
         fscanf(in, "%s", attrname);
     }
@@ -92,8 +92,8 @@ void tplane_amb(
 object_t *obj,
 drgb_t *value)
 {
-	plane_t pln = obj->priv;
-	tplane_t tpln = pln->priv;
+	plane_t pln = (plane_t *)obj->priv;
+	tplane_t tpln = (tplane_t *)pln->priv;
 	material_t mat = tpln->background;
 	
 
@@ -110,10 +110,23 @@ drgb_t *value)
 	}
 }
 
-void tplane_foreground(
+int tplane_foreground(
 object_t *obj)
 {
-	
+	plane_t pln = (plane_t *)obj->priv;
+	tplane_t tpln = (tplane_t *)pln->priv;
+
+	double x_ndx = (obj->hitloc.x + 10000) / tpln->dimension[0];
+	double z_ndx = (obj->hitloc.z + 10000) / tpln->dimension[1];
+
+	if((x_ndx + z_ndx) % 2 == 0)
+	{
+		return(1);
+	}
+	else
+	{
+		return(0);
+	}
 }
 
 static void tplane_dump(
@@ -121,7 +134,8 @@ FILE          *out,
 object_t *obj)
 {
 	plane_dump(out, obj);
-	tpln = (tplane_t *)obj->priv->priv;
+	plane_t pln = (plane_t *)obj->priv;
+	tplane_t tpln = (tplane_t *)pln->priv;
 
 	fprintf(stderr, "dimension %8.1lf %5.1lf %5.1f \n", 
 			tpln->dimension[0], tplan->dimension[1]);
