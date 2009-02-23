@@ -13,32 +13,6 @@
 
 #include "ray.h"
 
-void image_create(
-model_t *model)
-{
-   int y;
-   cam_t *cam = model->cam;
-   /* Fire ray(s) through each pixel in the window */
-   for (y = 0; y < cam->pixel_dim[1]; y++)
-   {
-      make_row(model, y);
-   }
-   /* Create ppm image */
-   camera_write_image(model->cam);
-}
-
-static inline void make_row(
-model_t *model,
-int y)
-{
-   int x;
-   cam_t *cam = model->cam;
-   for (x = 0; x < cam->pixel_dim[0]; x++)
-   {
-      make_pixel(model, x, y);
-   }
-}
-
 static inline void make_pixel(
 model_t *model,
 int x,
@@ -58,10 +32,33 @@ int y)
 /* in the case of specular (bouncing) rays which we are */
 /* not doing yet. */
    ray_trace(model, &cam->view_point,
-   &raydir, &d_pix, 0.0, NULL);
+            &raydir, &d_pix, 0.0, NULL);
 /* This function must convert the pixel value from drgb_t */
 /* [0.0, 1.0] to irgb_t (0, 255) and to store it in the */
 /* “upside down” location in the pixmap */
    camera_setpix(cam, x, y, &d_pix);
    return;
+}
+
+static inline void make_row(model_t *model, int y)
+{
+   int x;
+   cam_t *cam = model->cam;
+   for (x = 0; x < cam->pixel_dim[0]; x++)
+   {
+      make_pixel(model, x, y);
+   }
+}
+
+void image_create(model_t *model)
+{
+   int y;
+   cam_t *cam = model->cam;
+   /* Fire ray(s) through each pixel in the window */
+   for (y = 0; y < cam->pixel_dim[1]; y++)
+   {
+      make_row(model, y);
+   }
+   /* Create ppm image */
+   camera_write_image(model->cam);
 }

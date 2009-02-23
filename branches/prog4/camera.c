@@ -157,8 +157,10 @@ int x,
 int y,
 drgb_t *pix)
 {
-   int row;
-   int offset
+   int numcols = cam->pixel_dim[1];
+   int row = x;
+   int col = y;
+   int offset;
    irgb_t *maploc;
    assert(cam->cookie == CAM_COOKIE);
 
@@ -168,7 +170,7 @@ drgb_t *pix)
 
    #endif
 
-   offset = row * numcols + col
+   offset = x * numcols + col;
    
    #ifdef DBG_OFFSET
       fprintf(stderr, "OFF: %7d", offset);
