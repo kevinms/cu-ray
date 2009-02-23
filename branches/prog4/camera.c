@@ -150,3 +150,35 @@ vec_t   *dir)
 
    vec_unit(dir, dir);
 }
+
+void camera_setpix(
+cam_t *cam,
+int x,
+int y,
+drgb_t *pix)
+{
+   int row;
+   int offset
+   irgb_t *maploc;
+   assert(cam->cookie == CAM_COOKIE);
+
+   #ifdef DBG_IRGB
+      fprintf(stderr, " IRGB:(%5.0lf, %5.0lf, %5.0lf)",
+                              pix->r, pix->g, pix->b);
+
+   #endif
+
+   offset = row * numcols + col
+   
+   #ifdef DBG_OFFSET
+      fprintf(stderr, "OFF: %7d", offset);
+   #endif
+}
+
+void camera_write_image(
+cam_t *cam)
+{
+   assert(cam->cookie == CAM_COOKIE);
+   //Write the ppm header file (remember width before height)
+   //Write the entire binary pixmap to stdout with a single call to fwrite
+}
