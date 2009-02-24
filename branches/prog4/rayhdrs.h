@@ -165,3 +165,7 @@ drgb_t   *dpix,        /* pixel     return location */
 double   total_dist,   /* distance ray has traveled so far */
 object_t *last_hit);   /* most recently hit object */
 
+void image_create(model_t *model);
+
+void camera_write_image(
+cam_t *cam);

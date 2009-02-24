@@ -4,7 +4,7 @@ int main(
 int argc,
 char *argv[])
 {
-   cam_t   *cam;
+   //cam_t   *cam;
    model_t *model;
 /* Load and dump the model */
    model = model_init(stdin);
