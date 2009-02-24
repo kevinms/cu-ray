@@ -12,6 +12,10 @@
 
 #include "ray.h"
 
+void tplane_amb(object_t *obj,drgb_t *value);
+int tplane_foreground(object_t *obj);
+static void tplane_dump(FILE *out,object_t *obj);
+
 static char *tpln_attrs[] = { "dimension", "altmaterial" };
 #define NUM_ATTRS (sizeof(tpln_attrs) / sizeof(char *))
 
@@ -27,8 +31,8 @@ static inline void tpln_load_altmaterial(
  FILE *in, tplane_t *tpln, model_t *model)
 {
    int count;
-   count = fscanf(in, "%s", &tpln->matname);
-   tpln->background = material_search(model, matname);
+   count = fscanf(in, "%s", tpln->matname);
+   tpln->background = material_search(model, tpln->matname);
 /* ensure that the required number of values were found */
    assert(count == 1);
 }
@@ -36,7 +40,7 @@ static inline void tpln_load_altmaterial(
 static int tplane_attr_load(
 FILE      *in,
 tplane_t *tpln,       /* material to be filled in */
-char      *attrname
+char      *attrname,
 model_t *model)
 {
     int ndx;
@@ -62,13 +66,15 @@ model_t *model)
     int count;
 	object_t *obj;
     tplane_t *tpln;
+	plane_t *pln;
 
     tpln = (tplane_t *)malloc(sizeof(tplane_t));
     assert(tpln != NULL);
     memset(tpln, 0, sizeof(tpln));
 
 	obj = plane_init(in, model, 2);
-	obj->priv->priv = (void *)tpln;
+	pln = (plane_t *)obj->priv;
+	pln->priv = (void *)tpln;
 
     count = fscanf(in, "%s", attrname);
     assert(count == 1 && attrname[0] != '}');
@@ -92,15 +98,15 @@ void tplane_amb(
 object_t *obj,
 drgb_t *value)
 {
-	plane_t pln = (plane_t *)obj->priv;
-	tplane_t tpln = (tplane_t *)pln->priv;
-	material_t mat = tpln->background;
+	plane_t *pln = (plane_t *)obj->priv;
+	tplane_t *tpln = (tplane_t *)pln->priv;
+	material_t *mat = tpln->background;
 	
 
 	int foreground = tplane_foreground(obj);
 	if(foreground)
 	{
-		material_getam(obj, value);
+		material_getamb(obj, value);
 	}
 	else
 	{
@@ -113,13 +119,13 @@ drgb_t *value)
 int tplane_foreground(
 object_t *obj)
 {
-	plane_t pln = (plane_t *)obj->priv;
-	tplane_t tpln = (tplane_t *)pln->priv;
+	plane_t *pln = (plane_t *)obj->priv;
+	tplane_t *tpln = (tplane_t *)pln->priv;
 
 	double x_ndx = (obj->hitloc.x + 10000) / tpln->dimension[0];
 	double z_ndx = (obj->hitloc.z + 10000) / tpln->dimension[1];
 
-	if((x_ndx + z_ndx) % 2 == 0)
+	if((int)(x_ndx + z_ndx) % 2 == 0)
 	{
 		return(1);
 	}
@@ -134,8 +140,8 @@ FILE          *out,
 object_t *obj)
 {
 	plane_dump(out, obj);
-	plane_t pln = (plane_t *)obj->priv;
-	tplane_t tpln = (tplane_t *)pln->priv;
+	plane_t *pln = (plane_t *)obj->priv;
+	tplane_t *tpln = (tplane_t *)pln->priv;
 
 	fprintf(stderr, "dimension %8.1lf %5.1lf %5.1f \n", 
 			tpln->dimension[0], tplan->dimension[1]);
