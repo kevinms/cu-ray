@@ -52,7 +52,7 @@ object_t *last_hit)    /* most recently hit object */
 	double   mindist;
 	drgb_t   thisray = {0.0, 0.0, 0.0};
 
-	closest = find_closest_object(model->objs, base, dir, NULL, mindist);
+	closest = find_closest_object(model->objs, base, dir, NULL, &mindist);
 	if(closest != NULL)
 	{
 		#ifdef DBG_HIT
@@ -62,11 +62,11 @@ object_t *last_hit)    /* most recently hit object */
 				closest->hitloc.z);
 		#endif
 
-		closest->getamb(closest, thisray);
+		closest->getamb(closest, &thisray);
 	}
 
-	drgb_scale(1.0/mindist, thisray, thisray);
-	drgb_sum(thisray, dpix, dpix);
+	drgb_scale(1.0/mindist, &thisray, &thisray);
+	drgb_sum(&thisray, dpix, dpix);
 
 	#ifdef DBG_DRGB
 		fprintf(stderr, "%-12s DRGB:(%5.2lf, %5.2lf, %5.2lf)",
