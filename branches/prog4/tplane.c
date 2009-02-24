@@ -143,8 +143,8 @@ object_t *obj)
 	plane_t *pln = (plane_t *)obj->priv;
 	tplane_t *tpln = (tplane_t *)pln->priv;
 
-	fprintf(stderr, "dimension %8.1lf %5.1lf %5.1f \n", 
-			tpln->dimension[0], tplan->dimension[1]);
+	fprintf(stderr, "dimension %8.1lf %5.1lf \n", 
+			tpln->dimension[0], tpln->dimension[1]);
 	fprintf(stderr, "altmaterial       %s \n", 
 			tpln->background->name);
 }
