@@ -21,6 +21,7 @@ static char *entities[] =
     "material",
 	"sphere",
 	"plane",
+	"tiled_plane",
 };
 
 #define NUM_ITEMS (sizeof(entities) / sizeof(entities[0]))
@@ -50,6 +51,10 @@ char    *enttype)
    else if (ndx == 3)
    {
       plane_init(in, model, 0);
+   }
+   else if (ndx == 4)
+   {
+      tplane_init(in, model);
    }
 
    return;
