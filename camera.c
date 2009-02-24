@@ -157,9 +157,10 @@ int x,
 int y,
 drgb_t *pix)
 {
-   int numcols = cam->pixel_dim[1];
-   int curRow = x;
-   int curCol = y;
+   int numcols = cam->pixel_dim[0];
+   int curRow;
+   curRow = cam->pixel_dim[1] - y - 1;
+   int curCol = x;
    int offset;
    irgb_t *maploc;
    
@@ -175,9 +176,21 @@ drgb_t *pix)
    if(pix->b > 1.0 )
 	     pix->b = 1.0;
 
-   maploc->r =  ((pix->r * 256.0)-1);
-   maploc->g =  ((pix->r * 256.0)-1);
-   maploc->b =  ((pix->r * 256.0)-1);
+   pix->r =  ((pix->r * 256.0));
+   pix->g =  ((pix->g * 256.0));
+   pix->b =  ((pix->b * 256.0));
+   
+   if(pix->r > 255)
+      pix->r = 255;
+   if(pix->g > 255)
+      pix->g = 255;
+   if(pix->b > 255)
+      pix->b = 255;
+	  
+   maploc->r = pix->r;
+   maploc->g = pix->g;
+   maploc->b = pix->b;
+
 
    //offset = curRow * numcols + curCol;
    //cam->pixmap[offset]->r = maploc->r;
