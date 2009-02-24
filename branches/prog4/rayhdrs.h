@@ -75,6 +75,10 @@ material_t *material_search(
 model_t *model,
 char    *name);
 
+void material_getamb(
+object_t *obj,
+drgb_t   *dest);
+
 void plane_dump(
 FILE *out,
 object_t *obj);
@@ -127,3 +131,37 @@ double  sphere_hits(
 vec_t      *base,
 vec_t      *dir,      /* MUST be unit vector */
 object_t   *obj);
+
+object_t *tplane_init(
+FILE     *in,
+model_t *model);
+
+void tplane_amb(
+object_t *obj,
+drgb_t *value);
+
+int tplane_foreground(
+object_t *obj);
+
+void tplane_dump(
+FILE          *out,
+object_t *obj);
+
+object_t *find_closest_object(
+list_t   *list,        /* Model structure               */
+vec_t    *base,        /* Base of ray (viewpoint)       */
+vec_t    *dir,         /* unit direction of ray         */
+object_t *last_hit,    /* object last hit (ignore)      */
+double   *retdist);    /* return dist to hit point here */
+
+/**/
+/* This function traces a single ray and returns the  */
+/* composite intensity of the light it encounters     */
+void ray_trace(
+model_t *model,
+vec_t    *base,        /* location of viewer or previous hit */
+vec_t    *dir,         /* unit vector in direction of object */
+drgb_t   *dpix,        /* pixel     return location */
+double   total_dist,   /* distance ray has traveled so far */
+object_t *last_hit);   /* most recently hit object */
+
