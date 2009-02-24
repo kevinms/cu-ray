@@ -43,6 +43,7 @@ model_t     *model)
    assert(mat != NULL);
    obj->mat = mat;
    list_add(model->objs, (void *)obj);
+   obj->getamb = material_getamb;
    return(obj);
 }
 

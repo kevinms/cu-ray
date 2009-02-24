@@ -158,29 +158,44 @@ int y,
 drgb_t *pix)
 {
    int numcols = cam->pixel_dim[1];
-   int row = x;
-   int col = y;
+   int curRow = x;
+   int curCol = y;
    int offset;
    irgb_t *maploc;
-   assert(cam->cookie == CAM_COOKIE);
-
-   #ifdef DBG_IRGB
-      fprintf(stderr, " IRGB:(%5.0lf, %5.0lf, %5.0lf)",
-                              pix->r, pix->g, pix->b);
-
-   #endif
-
-   offset = x * numcols + col;
    
-   #ifdef DBG_OFFSET
-      fprintf(stderr, "OFF: %7d", offset);
-   #endif
+   assert(cam->cookie == CAM_COOKIE);
+   
+   offset = curRow * numcols + curCol;
+   maploc = cam->pixmap+offset;
+   
+   if(pix->r > 1.0 )
+	     pix->r = 1.0;
+   if(pix->g > 1.0 )
+	     pix->g = 1.0;
+   if(pix->b > 1.0 )
+	     pix->b = 1.0;
+
+   maploc->r =  ((pix->r * 256.0)-1);
+   maploc->g =  ((pix->r * 256.0)-1);
+   maploc->b =  ((pix->r * 256.0)-1);
+
+   //offset = curRow * numcols + curCol;
+   //cam->pixmap[offset]->r = maploc->r;
 }
 
 void camera_write_image(
 cam_t *cam)
 {
    assert(cam->cookie == CAM_COOKIE);
-   //Write the ppm header file (remember width before height)
+   
+   int w = cam->pixel_dim[0];
+   int d = cam->pixel_dim[1];
+
+   //header part of the ppm
+   fprintf(stdout, "P6\n");
+   fprintf(stdout, "%d %d %d\n", w, d, 255);
+
    //Write the entire binary pixmap to stdout with a single call to fwrite
+   fwrite(cam->pixmap, sizeof(irgb_t), w * d, stdout);
+   
 }

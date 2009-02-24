@@ -21,21 +21,14 @@ int y)
    vec_t raydir;
    drgb_t d_pix = {0.0, 0.0, 0.0};
    cam_t *cam = model->cam;
-   int i;
-/* This function was written previously */
+
    camera_getdir(cam, x, y, &raydir);
-#ifdef DBG_PIX
-   fprintf(stderr, "\nPIX %4d %4d - ", y, x);
-#endif
-/* The ray_trace function determines the pixel color in */
-/* d_rgb units.. The last two parameters are used ONLY */
-/* in the case of specular (bouncing) rays which we are */
-/* not doing yet. */
+
+   //fprintf(stderr, "\nPIX %4d %4d - ", y, x);
+
    ray_trace(model, &cam->view_point,
             &raydir, &d_pix, 0.0, NULL);
-/* This function must convert the pixel value from drgb_t */
-/* [0.0, 1.0] to irgb_t (0, 255) and to store it in the */
-/* “upside down” location in the pixmap */
+		 
    camera_setpix(cam, x, y, &d_pix);
    return;
 }
