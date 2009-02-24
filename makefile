@@ -1,4 +1,4 @@
-CFLAGS = -DDBG_PIX -DDBG_HIT
+#CFLAGS = -DDBG_PIX -DDBG_HIT
 RAYOBJS = main.o model.o camera.o list.o material.o plane.o \
           object.o sphere.o tplane.o image.o ray.o
 RAYHDRS = vector.h ray.h rayfuns.h rayhdrs.h

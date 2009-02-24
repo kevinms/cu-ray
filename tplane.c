@@ -116,10 +116,10 @@ object_t *obj)
 	plane_t *pln = (plane_t *)obj->priv;
 	tplane_t *tpln = (tplane_t *)pln->priv;
 
-	double x_ndx = (obj->hitloc.x + 10000) / tpln->dimension[0];
-	double z_ndx = (obj->hitloc.z + 10000) / tpln->dimension[1];
+	int x_ndx = (obj->hitloc.x + 10000) / tpln->dimension[0];
+	int z_ndx = (obj->hitloc.z + 10000) / tpln->dimension[1];
 
-	if((int)(x_ndx + z_ndx) % 2 == 0)
+	if((x_ndx + z_ndx) % 2 == 0)
 	{
 		return(1);
 	}
@@ -137,8 +137,8 @@ object_t *obj)
 	plane_t *pln = (plane_t *)obj->priv;
 	tplane_t *tpln = (tplane_t *)pln->priv;
 
-	fprintf(stderr, "dimension %8.1lf %5.1lf \n", 
+	fprintf(stderr, "dimension %8.1lf %5.1lf\n", 
 			tpln->dimension[0], tpln->dimension[1]);
-	fprintf(stderr, "altmaterial       %s \n", 
-			tpln->background->name);
+	//fprintf(stderr, "altmaterial       %s\n", 
+	//		tpln->background->name);
 }

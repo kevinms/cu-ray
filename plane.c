@@ -59,7 +59,8 @@ model_t *model,
 int attrmax)
 {
     char attrname[NAME_LEN];
-    int count, attrp;
+    int count;
+	int attrp = 0;
 	
 	plane_t *pln;
 	object_t *obj;
@@ -82,7 +83,7 @@ int attrmax)
 		}
 		fscanf(in, "%s", attrname);
 	}
-	if(attrmax != 0)
+	if(attrmax == 0)
 	{
 		assert(attrname[0] == '}');
 	}
