@@ -110,9 +110,7 @@ drgb_t *value)
 	}
 	else
 	{
-		value->r = mat->ambient.r;
-		value->g = mat->ambient.g;
-		value->b = mat->ambient.b;
+		drgb_copy(&mat->ambient, value);
 	}
 }
 

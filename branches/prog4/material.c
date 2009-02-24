@@ -177,6 +177,6 @@ drgb_t   *dest)
    material_t *mat = obj->mat;
    assert(obj->cookie == OBJ_COOKIE);
    assert(mat->cookie == MAT_COOKIE);
-   pix_copy(&mat.ambient, dest);
+   drgb_copy(&mat->ambient, dest);
 }
 
