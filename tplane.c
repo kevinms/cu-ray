@@ -12,10 +12,6 @@
 
 #include "ray.h"
 
-void tplane_amb(object_t *obj,drgb_t *value);
-int tplane_foreground(object_t *obj);
-static void tplane_dump(FILE *out,object_t *obj);
-
 static char *tpln_attrs[] = { "dimension", "altmaterial" };
 #define NUM_ATTRS (sizeof(tpln_attrs) / sizeof(char *))
 
@@ -133,7 +129,7 @@ object_t *obj)
 	}
 }
 
-static void tplane_dump(
+void tplane_dump(
 FILE          *out,
 object_t *obj)
 {
