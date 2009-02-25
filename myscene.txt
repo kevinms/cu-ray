@@ -6,7 +6,7 @@ camera Camera
 }
 material Red
 {
-	ambient 8.02485558427 8.02485558427 8.02485558427
+	ambient 10.3 9.6 7
 }
 sphere Sphere.060
 {
