@@ -1,3 +1,15 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 24, 2009
+ * Program 4
+ *
+ * Description
+ * This header file contains vector definitions and inline functions
+ * for 3 - D vector and matrix operations              
+ ***********************************************************************/
+ 
 /* vector.h */
 
 /* This header file contains vector definitions and */

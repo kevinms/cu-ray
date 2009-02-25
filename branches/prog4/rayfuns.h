@@ -1,3 +1,14 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 24, 2009
+ * Program 4
+ *
+ * Description
+ * Basic functions given for the ray system dealing with vectors.
+ ***********************************************************************/
+
 /* rayfuns.h */
 
 /**/

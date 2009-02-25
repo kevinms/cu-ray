@@ -1,3 +1,15 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 24, 2009
+ * Program 4
+ *
+ * Description
+ * Basic functions for the ray system, such as finding the closest
+ * object and tracing the ray from the camera to that object.
+ ***********************************************************************/
+
 #include "ray.h"
 
 object_t *find_closest_object(
