@@ -1,3 +1,13 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 24, 2009
+ * Program 4
+ *
+ * Description
+ * List structures
+ ***********************************************************************/
 
 typedef struct link_type
 {

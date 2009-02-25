@@ -1,4 +1,15 @@
-
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * February 24, 2009
+ * Program 4
+ *
+ * Description
+ * This is the headers file which contains the headers for most of the
+ * functions used to prevent the function calling errors.
+ ***********************************************************************/
+ 
 /* == main.c == */
 
 /* == camera.c == */
