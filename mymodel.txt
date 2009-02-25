@@ -1,883 +1,1092 @@
-camera cam1
+camera Camera
 {
 	pixeldim 800 600
-	worlddim 66 50
-	viewpoint 33 20 25
+	worlddim 8 6
+	viewpoint 4.0 3.0 8.98343467712
 }
-material red
+material blobcolor
 {
-	ambient 5 50 5
+	ambient 3 7 11.4
 }
-
-material black
+material scolor
 {
-	ambient 0 0 0
+	ambient 7.3 6 5.5
 }
-
-material white
+material gray3
 {
-	ambient 50 50 50
+   ambient 15 25 25
 }
-
+material gray2
+{
+   ambient 2.5 3.5 3.5
+}
 tiled_plane floor
 {
-   material white
+   material blobcolor
    normal 0 1 0
-   point 0 -40 0
-   dimension 2.0 3.0
-   altmaterial black
-}
-
-plane wall
-{
-   material white
-   normal 1 0 0 
-   point 200 0 0
-}
-
-sphere corner
-{
-	material white
-	center 0 50 -2
-	radius 1
-}
-
-
-sphere corner
-{
-	material white
-	center 66 50 -2
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 0 -2
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 0 0 -2
-	radius 1
-}
-
-
-
-sphere corner
-{
-	material white
-	center 0 50 -8
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 50 -8
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 0 -8
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 0 0 -8
-	radius 1
-}
-
-
-sphere corner
-{
-	material white
-	center 0 50 -14
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 50 -14
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 0 -14
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 0 0 -14
-	radius 1
-}
-
-sphere corner
-{
-	material white
-	center 0 50 -22
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 50 -22
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 0 -22
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 0 0 -22
-	radius 1
-}
-
-sphere corner
-{
-	material white
-	center 0 50 -30
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 50 -30
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 0 -30
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 0 0 -30
-	radius 1
-}
-
-sphere corner
-{
-	material white
-	center 0 50 -38
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 50 -38
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 66 0 -38
-	radius 1
-}
-sphere corner
-{
-	material white
-	center 0 0 -38
-	radius 1
-}
-
-
-sphere Sphere.114
-{
-	material red
-	center 51.3530387878 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.113
-{
-	material red
-	center 50.3530387878 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.112
-{
-	material red
-	center 47.3530387878 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.111
-{
-	material red
-	center 48.3530387878 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.110
-{
-	material red
-	center 49.3530387878 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.109
-{
-	material red
-	center 49.3530387878 6.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.108
-{
-	material red
-	center 49.3530387878 5.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.107
-{
-	material red
-	center 49.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.106
-{
-	material red
-	center 49.3530387878 7.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.105
-{
-	material red
-	center 49.3530387878 8.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.104
-{
-	material red
-	center 49.3530387878 9.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.103
-{
-	material red
-	center 45.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.102
-{
-	material red
-	center 44.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.101
-{
-	material red
-	center 43.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.100
-{
-	material red
-	center 42.3530387878 9.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.099
-{
-	material red
-	center 42.3530387878 8.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.098
-{
-	material red
-	center 42.3530387878 7.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.097
-{
-	material red
-	center 42.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.096
-{
-	material red
-	center 42.3530387878 5.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.095
-{
-	material red
-	center 42.3530387878 6.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.094
-{
-	material red
-	center 42.3530387878 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.093
-{
-	material red
-	center 39.3530387878 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.092
-{
-	material red
-	center 39.3530387878 6.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.091
-{
-	material red
-	center 39.3530387878 5.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.090
-{
-	material red
-	center 39.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.089
-{
-	material red
-	center 39.3530387878 7.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.088
-{
-	material red
-	center 39.3530387878 8.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.087
-{
-	material red
-	center 39.3530387878 9.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.086
-{
-	material red
-	center 38.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.085
-{
-	material red
-	center 37.3530387878 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.084
-{
-	material red
-	center 36.3530349731 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.083
-{
-	material red
-	center 35.3530349731 9.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.082
-{
-	material red
-	center 35.3530349731 8.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.081
-{
-	material red
-	center 35.3530349731 7.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.080
-{
-	material red
-	center 35.3530349731 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.079
-{
-	material red
-	center 35.3530349731 5.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.078
-{
-	material red
-	center 35.3530349731 6.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.077
-{
-	material red
-	center 35.3530349731 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.076
-{
-	material red
-	center 28.3530368805 7.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.075
-{
-	material red
-	center 32.3530349731 7.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.074
-{
-	material red
-	center 31.3530368805 9.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.073
-{
-	material red
-	center 29.3530368805 9.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.072
-{
-	material red
-	center 28.3530368805 5.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.071
-{
-	material red
-	center 32.3530349731 5.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.070
-{
-	material red
-	center 31.3530368805 8.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.069
-{
-	material red
-	center 29.3530368805 8.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.068
-{
-	material red
-	center 29.3530368805 6.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.067
-{
-	material red
-	center 31.3530368805 6.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.066
-{
-	material red
-	center 30.3530368805 6.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.065
-{
-	material red
-	center 32.3530349731 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.064
-{
-	material red
-	center 30.3530368805 10.2688970566 -7.78330993652
-	radius .8
-}
-sphere Sphere.063
-{
-	material red
-	center 28.3530368805 4.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.062
-{
-	material red
-	center 23.3530368805 7.26889705658 -7.78330993652
-	radius .8
-}
-sphere Sphere.061
-{
-	material red
-	center 25.3530368805 7.26889705658 -7.78330993652
-	radius .8
+   point 0 -1 0
+   dimension 1.0 1.0
+   altmaterial gray2
+}
+plane backwall
+{
+   material gray3
+   normal 0 0  1
+   point  0 0 -45
 }
 sphere Sphere.060
 {
-	material red
-	center 24.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 8.09112262726 2.35156702995 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.059
 {
-	material red
-	center 24.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 8.09112262726 1.25784552097 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.058
 {
-	material red
-	center 25.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 8.09112262726 3.91339826584 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.057
 {
-	material red
-	center 23.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 8.09112262726 5.00712013245 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.056
 {
-	material red
-	center 22.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center -0.112820625305 5.00711965561 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.055
 {
-	material red
-	center 22.3530368805 6.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center -0.112820625305 3.913397789 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.054
 {
-	material red
-	center 22.3530368805 5.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center -0.112820148468 1.25784480572 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.053
 {
-	material red
-	center 22.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center -0.112820625305 2.35156655312 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.052
 {
-	material red
-	center 22.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 4.77006673813 -0.969488620758 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.051
 {
-	material red
-	center 22.3530368805 8.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.8637881279 -0.969488620758 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.050
 {
-	material red
-	center 22.3530368805 9.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 3.20823502541 -0.969488620758 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.049
 {
-	material red
-	center 19.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.11451387405 -0.969488620758 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.048
 {
-	material red
-	center 18.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.11451387405 7.23445510864 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.047
 {
-	material red
-	center 19.3530368805 6.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 3.20823502541 7.23445510864 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.046
 {
-	material red
-	center 19.3530368805 5.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.8637881279 7.23445510864 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.045
 {
-	material red
-	center 19.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 4.77006673813 7.23445510864 -6.28248882294
+	radius 0.10346481204
 }
 sphere Sphere.044
 {
-	material red
-	center 18.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 7.68431949615 2.55902528763 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.043
 {
-	material red
-	center 17.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 7.68431949615 1.18111872673 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.042
 {
-	material red
-	center 17.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 7.68431949615 3.68640375137 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.041
 {
-	material red
-	center 18.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 7.68431949615 5.06431007385 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.040
 {
-	material red
-	center 19.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 0.293730020523 5.06430912018 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.039
 {
-	material red
-	center 16.3530368805 9.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 0.293730020523 3.6864027977 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.038
 {
-	material red
-	center 16.3530368805 8.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 0.293730020523 1.18111848831 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.037
 {
-	material red
-	center 16.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 0.293730020523 2.55902481079 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.036
 {
-	material red
-	center 16.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 4.55271482468 -0.572580814362 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.035
 {
-	material red
-	center 16.3530368805 5.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.93062067032 -0.572580814362 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.034
 {
-	material red
-	center 16.3530368805 6.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 3.42533612251 -0.572580814362 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.033
 {
-	material red
-	center 16.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.04742980003 -0.572580814362 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.032
 {
-	material red
-	center 13.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.04742980003 6.81800889969 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.031
 {
-	material red
-	center 12.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 3.42533612251 6.81800889969 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.030
 {
-	material red
-	center 11.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.93062067032 6.81800889969 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.029
 {
-	material red
-	center 11.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 4.55271482468 6.81800889969 -5.68663883209
+	radius 0.19109749794
 }
 sphere Sphere.028
 {
-	material red
-	center 12.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 6.96298885345 2.56308674812 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.027
 {
-	material red
-	center 13.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 6.96298885345 1.25362813473 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.026
 {
-	material red
-	center 13.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 6.96298885345 3.63862705231 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.025
 {
-	material red
-	center 12.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 6.96298885345 4.94808530807 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.024
 {
-	material red
-	center 10.3530368805 6.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 1.01090359688 4.94808530807 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.023
 {
-	material red
-	center 10.3530368805 5.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 1.01090359688 3.63862657547 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.022
 {
-	material red
-	center 10.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 1.01090359688 1.25362753868 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.021
 {
-	material red
-	center 11.3530368805 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 1.01090359688 2.56308603287 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.020
 {
-	material red
-	center 10.3530368805 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 4.52471637726 0.12481379509 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.019
 {
-	material red
-	center 10.3530368805 8.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.83417463303 0.12481379509 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.018
 {
-	material red
-	center 10.3530368805 9.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 3.44917559624 0.12481379509 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.017
 {
-	material red
-	center 10.3530368805 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.13971710205 0.12481379509 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.016
 {
-	material red
-	center 4.35303688049 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.13971710205 6.07689857483 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.015
 {
-	material red
-	center 5.35303688049 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 3.44917559624 6.07689857483 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.014
 {
-	material red
-	center 5.35303688049 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.83417463303 6.07689857483 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.013
 {
-	material red
-	center 6.35303688049 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 4.52471637726 6.07689857483 -4.78694248199
+	radius 0.454011708498
 }
 sphere Sphere.012
 {
-	material red
-	center 7.35303688049 4.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.13894796371 0.825988292694 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.011
 {
-	material red
-	center 7.35303688049 5.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 6.27624893188 1.96328938007 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.010
 {
-	material red
-	center 7.35303688049 6.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.86434555054 5.37519264221 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.009
 {
-	material red
-	center 7.35303688049 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 1.72704458237 4.23789167404 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.008
 {
-	material red
-	center 6.35303688049 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 1.72704458237 1.96328938007 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.007
 {
-	material red
-	center 5.35303688049 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.86434555054 0.825988292694 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.006
 {
-	material red
-	center 4.35303688049 7.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 6.27624893188 4.23789167404 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.005
 {
-	material red
-	center 4.35303688049 8.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.13894796371 5.37519264221 -3.47152709961
+	radius 0.619648456573
 }
 sphere Sphere.004
 {
-	material red
-	center 4.35303688049 9.26889705658 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.11795902252 1.98204112053 -2.3017077446
+	radius 0.824132680893
 }
 sphere Sphere.003
 {
-	material red
-	center 4.35303688049 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.8820412159 1.98204112053 -2.3017077446
+	radius 0.824132680893
 }
 sphere Sphere.002
 {
-	material red
-	center 5.35303688049 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 2.8820412159 4.21795845032 -2.3017077446
+	radius 0.824132680893
 }
 sphere Sphere.001
 {
-	material red
-	center 6.35303688049 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 5.11795902252 4.21795845032 -2.3017077446
+	radius 0.824132680893
 }
 sphere Sphere
 {
-	material red
-	center 7.35303688049 10.2688970566 -7.78330993652
-	radius .8
+	material blobcolor
+	center 4.0 3.07754230499 -1.23374986649
+	radius 1.11192083359
+}
+sphere seg.115
+{
+	material scolor
+	center 1.32534301281 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.027
+{
+	material scolor
+	center 1.1382972002 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.114
+{
+	material scolor
+	center 2.18040037155 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.113
+{
+	material scolor
+	center 2.13034772873 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.112
+{
+	material scolor
+	center 1.98018848896 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.111
+{
+	material scolor
+	center 2.03024125099 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.110
+{
+	material scolor
+	center 2.08029484749 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.109
+{
+	material scolor
+	center 2.08029484749 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.108
+{
+	material scolor
+	center 2.08029484749 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.107
+{
+	material scolor
+	center 2.08029484749 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.106
+{
+	material scolor
+	center 2.08029484749 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.105
+{
+	material scolor
+	center 2.08029484749 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.104
+{
+	material scolor
+	center 2.08029484749 0.300864815712 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.103
+{
+	material scolor
+	center 1.94274616241 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.102
+{
+	material scolor
+	center 1.89269328117 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.101
+{
+	material scolor
+	center 1.84264051914 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.100
+{
+	material scolor
+	center 1.79258704185 0.300864815712 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.099
+{
+	material scolor
+	center 1.79258704185 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.098
+{
+	material scolor
+	center 1.79258704185 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.097
+{
+	material scolor
+	center 1.80622911453 0.0631927251816 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.096
+{
+	material scolor
+	center 1.79258704185 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.095
+{
+	material scolor
+	center 1.79258704185 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.094
+{
+	material scolor
+	center 1.79258704185 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.093
+{
+	material scolor
+	center 1.6424279213 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.092
+{
+	material scolor
+	center 1.6424279213 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.091
+{
+	material scolor
+	center 1.6424279213 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.090
+{
+	material scolor
+	center 1.63193416595 0.0600444599986 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.089
+{
+	material scolor
+	center 1.6424279213 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.088
+{
+	material scolor
+	center 1.6424279213 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.087
+{
+	material scolor
+	center 1.6424279213 0.300864815712 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.086
+{
+	material scolor
+	center 1.59237504005 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.085
+{
+	material scolor
+	center 1.54232227802 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.084
+{
+	material scolor
+	center 1.49226939678 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.083
+{
+	material scolor
+	center 1.44221591949 0.300864815712 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.082
+{
+	material scolor
+	center 1.44221591949 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.081
+{
+	material scolor
+	center 1.44221591949 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.080
+{
+	material scolor
+	center 1.45585799217 0.0642421022058 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.079
+{
+	material scolor
+	center 1.44221591949 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.078
+{
+	material scolor
+	center 1.44221591949 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.077
+{
+	material scolor
+	center 1.44221591949 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.076
+{
+	material scolor
+	center 1.14897358418 0.199544176459 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.075
+{
+	material scolor
+	center 1.3097114563 0.201973393559 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.074
+{
+	material scolor
+	center 1.26816058159 0.306330412626 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.073
+{
+	material scolor
+	center 1.20145571232 0.303294032812 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.072
+{
+	material scolor
+	center 1.13257658482 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.071
+{
+	material scolor
+	center 1.33278858662 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.070
+{
+	material scolor
+	center 1.28637933731 0.253241032362 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.069
+{
+	material scolor
+	center 1.17473471165 0.251419126987 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.068
+{
+	material scolor
+	center 1.18614387512 0.160320430994 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.067
+{
+	material scolor
+	center 1.28009986877 0.159814402461 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.066
+{
+	material scolor
+	center 1.23268294334 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.065
+{
+	material scolor
+	center 1.33278858662 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.064
+{
+	material scolor
+	center 1.23268294334 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.063
+{
+	material scolor
+	center 1.13257658482 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.062
+{
+	material scolor
+	center 0.944975435734 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.060
+{
+	material scolor
+	center 0.99502825737 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.059
+{
+	material scolor
+	center 0.99502825737 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.058
+{
+	material scolor
+	center 1.04508173466 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.057
+{
+	material scolor
+	center 0.944975435734 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.056
+{
+	material scolor
+	center 0.909498035908 0.334155768156 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.055
+{
+	material scolor
+	center 0.89492225647 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.054
+{
+	material scolor
+	center 0.89492225647 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.053
+{
+	material scolor
+	center 0.89492225647 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.052
+{
+	material scolor
+	center 0.89492225647 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.051
+{
+	material scolor
+	center 0.89492225647 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.050
+{
+	material scolor
+	center 0.89492225647 0.300864815712 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.049
+{
+	material scolor
+	center 0.728991925716 0.186211660504 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.048
+{
+	material scolor
+	center 0.683778464794 0.186911895871 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.047
+{
+	material scolor
+	center 0.757152378559 0.152163311839 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.046
+{
+	material scolor
+	center 0.758610069752 0.10575427115 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.045
+{
+	material scolor
+	center 0.738932967186 0.341443747282 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.044
+{
+	material scolor
+	center 0.694710314274 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.043
+{
+	material scolor
+	center 0.644657194614 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.042
+{
+	material scolor
+	center 0.654860138893 0.0425831191242 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.041
+{
+	material scolor
+	center 0.701998054981 0.044769462198 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.040
+{
+	material scolor
+	center 0.745432972908 0.061269633472 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.039
+{
+	material scolor
+	center 0.59460401535 0.300864815712 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.038
+{
+	material scolor
+	center 0.59460401535 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.037
+{
+	material scolor
+	center 0.59460401535 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.036
+{
+	material scolor
+	center 0.608248054981 0.0621445477009 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.035
+{
+	material scolor
+	center 0.59460401535 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.034
+{
+	material scolor
+	center 0.59460401535 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.033
+{
+	material scolor
+	center 0.606323599815 0.33870318532 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.032
+{
+	material scolor
+	center 0.469510614872 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.031
+{
+	material scolor
+	center 0.419457644224 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.030
+{
+	material scolor
+	center 0.369404643774 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.029
+{
+	material scolor
+	center 0.369404643774 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.028
+{
+	material scolor
+	center 0.419457644224 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.026
+{
+	material scolor
+	center 0.469510614872 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.025
+{
+	material scolor
+	center 0.419457644224 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.024
+{
+	material scolor
+	center 0.319351673126 0.15070579946 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.023
+{
+	material scolor
+	center 0.319351673126 0.100652776659 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.022
+{
+	material scolor
+	center 0.329846888781 0.0600454807281 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.021
+{
+	material scolor
+	center 0.369404643774 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.020
+{
+	material scolor
+	center 0.319351673126 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.019
+{
+	material scolor
+	center 0.319351673126 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.018
+{
+	material scolor
+	center 0.319351673126 0.300864815712 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.017
+{
+	material scolor
+	center 0.330896377563 0.33727401495 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.016
+{
+	material scolor
+	center 0.0514457114041 0.0642435923219 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.015
+{
+	material scolor
+	center 0.0941520556808 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.014
+{
+	material scolor
+	center 0.0941520556808 0.0505997501314 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.013
+{
+	material scolor
+	center 0.13983219862 0.0498709343374 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.012
+{
+	material scolor
+	center 0.179802939296 0.0626254454255 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.011
+{
+	material scolor
+	center 0.195715740323 0.102839179337 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.010
+{
+	material scolor
+	center 0.196444511414 0.14851936698 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.009
+{
+	material scolor
+	center 0.178831279278 0.185574814677 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.008
+{
+	material scolor
+	center 0.144205078483 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.007
+{
+	material scolor
+	center 0.0961765125394 0.200758829713 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.006
+{
+	material scolor
+	center 0.0560436695814 0.212197348475 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.005
+{
+	material scolor
+	center 0.0440990366042 0.250811815262 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.004
+{
+	material scolor
+	center 0.0389973893762 0.293576836586 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.003
+{
+	material scolor
+	center 0.0526021420956 0.333911627531 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.002
+{
+	material scolor
+	center 0.0941520556808 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg.001
+{
+	material scolor
+	center 0.144205078483 0.350917875767 -0.0330524779856
+	radius 0.028482530266
+}
+sphere seg
+{
+	material scolor
+	center 0.194258108735 0.334125488997 -0.0330524779856
+	radius 0.028482530266
 }
