@@ -12,7 +12,7 @@ FILE *out)
                  "center", center.x, center.y,
                  center.z);
    fprintf(out, "%-12s %5.1lf \n",
-                 "radius", &radius);
+                 "radius", radius);
 }
 
 
@@ -21,15 +21,41 @@ double sphere_t::hits(
 vec_t    *base,      /* ray base              */
 vec_t    *dir)       /* unit direction vector */
 {
-	double a, b, c, t, d;
+	vec_t hit, sdir, hitdir;
+	sphere_t *sph;
 
-	vec_diff(center, base, &vec_t);
+	sph = (sphere_t *)obj->priv;
+	
+	double a, b, c, t, d;
+    vec_t vloc;
+	
+	vec_diff(center, base, &vloc);
 	a = vec_dot(dir, dir);
-	b = 2.0 * vec_dot(&vec_t, dir);
-	c = vec_dot(&vec_t, &vec_t) - (&radius * &radius);
+	b = 2.0 * vec_dot(&vloc, dir);
+	c = vec_dot(&vloc, &vloc) - (radius * radius);
 
 	d = b * b - 4 * a * c;
+
 	if(d > 0.0)
+	{
+		t = (b * (-1.0) - sqrt(d)) / (2 * a);
+	}
+	else
+	{
+		return (-1);
+	}
+
+	vec_scale(t, dir, &sdir);
+	vec_sum(base, &sdir, &hit);
+
+	if(hit.z < 0.0)
+	{
+		vec_copy(&hit, &obj->hitloc);
+		vec_diff(&sph->center, &hit, &hitdir);
+		vec_unit(&hitdir, &obj->normal);
+		return(t);
+	}
+    if(d > 0.0)
 	{
 		t = (b * (-1.0) - sqrt(d)) / (2 * a);
 		return(t);
@@ -38,6 +64,8 @@ vec_t    *dir)       /* unit direction vector */
 	{
 		return(-1);
 	}
+	
+	
 }
 
 
@@ -45,7 +73,7 @@ vec_t    *dir)       /* unit direction vector */
 static ppram_t sphere_parse[] =
 {
    {"center",   3, 8, "%lf", 0},
-   {"radius",  3, 8, "%lf", 0}
+   {"radius",  1, 8, "%lf", 0}
 };
 
 
@@ -70,7 +98,6 @@ int      attrmax) : object_t(in, model)
 
    vec_unit(&radius, &radius);
    vec_copy(&radius, &hitnorm);
-   ndotq = vec_dot(&center, &radius);
 }
 
 
