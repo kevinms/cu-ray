@@ -22,14 +22,14 @@ vec_t    *base,      /* ray base              */
 vec_t    *dir)       /* unit direction vector */
 {
 	vec_t hit, sdir, hitdir;
-	sphere_t *sph;
+	//sphere_t *sph;
 
-	sph = (sphere_t *)obj->priv;
+	//sph = (sphere_t *)obj->priv;
 	
 	double a, b, c, t, d;
     vec_t vloc;
 	
-	vec_diff(center, base, &vloc);
+	vec_diff(&center, base, &vloc);
 	a = vec_dot(dir, dir);
 	b = 2.0 * vec_dot(&vloc, dir);
 	c = vec_dot(&vloc, &vloc) - (radius * radius);
@@ -50,9 +50,9 @@ vec_t    *dir)       /* unit direction vector */
 
 	if(hit.z < 0.0)
 	{
-		vec_copy(&hit, &obj->hitloc);
-		vec_diff(&sph->center, &hit, &hitdir);
-		vec_unit(&hitdir, &obj->normal);
+		vec_copy(&hit, &hitloc);
+		vec_diff(&center, &hit, &hitdir);
+		vec_unit(&hitdir, &hitnorm);
 		return(t);
 	}
     if(d > 0.0)
@@ -94,10 +94,10 @@ int      attrmax) : object_t(in, model)
    sphere_parse[0].center = &center;
    sphere_parse[1].radius = &radius;
    mask = parser(in, sphere_parse, NUM_ATTRS, attrmax);
-   assert(mask == 3);
+   assert(mask == 2);
 
-   vec_unit(&radius, &radius);
-   vec_copy(&radius, &hitnorm);
+//   vec_unit(radius, radius);
+//   vec_copy(radius, hitnorm);
 }
 
 
