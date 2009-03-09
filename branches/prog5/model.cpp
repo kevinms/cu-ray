@@ -7,9 +7,9 @@ static char *items[] =
     "camera",
     "material",
     "plane",
+	"sphere",
 #if 0
     "pplane",
-    "sphere",
     "light",
     "tiled_plane",
     "ellipsoid",
@@ -39,10 +39,10 @@ char    *itemtype)
    case 2:
       new plane_t(in, this, 0);
       break;
-#if 0
    case 3:
       new sphere_t(in, this, 0);
       break;
+#if 0
    case 4:
       new light_t(in, this, 0);
       break;
