@@ -9,8 +9,8 @@ FILE *out)
 {
 
    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf \n",
-                 "center", &center.x, &center.y,
-                 &center.z);
+                 "center", center.x, center.y,
+                 center.z);
    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf \n",
                  "radius", &radius);
 }
