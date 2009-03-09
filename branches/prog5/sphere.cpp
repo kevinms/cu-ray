@@ -1,7 +1,7 @@
 #include "ray.h"
 
 
-#define NUM_ATTRS (sizeof(plane_parse) / sizeof(pparm_t))
+#define NUM_ATTRS (sizeof(sphere_parse) / sizeof(pparm_t))
 
 
 void sphere_t::dumper(
@@ -11,7 +11,7 @@ FILE *out)
    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf \n",
                  "center", center.x, center.y,
                  center.z);
-   fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf \n",
+   fprintf(out, "%-12s %5.1lf \n",
                  "radius", &radius);
 }
 
@@ -23,7 +23,7 @@ vec_t    *dir)       /* unit direction vector */
 {
 	double a, b, c, t, d;
 
-	vec_diff(&center, base, &vec_t);
+	vec_diff(center, base, &vec_t);
 	a = vec_dot(dir, dir);
 	b = 2.0 * vec_dot(&vec_t, dir);
 	c = vec_dot(&vec_t, &vec_t) - (&radius * &radius);
@@ -42,10 +42,10 @@ vec_t    *dir)       /* unit direction vector */
 
 
 
-static sphere_t sphere_parse[] =
+static ppram_t sphere_parse[] =
 {
    {"center",   3, 8, "%lf", 0},
-   {"radius",  1, 8, "%lf", 0}
+   {"radius",  3, 8, "%lf", 0}
 };
 
 
@@ -58,13 +58,13 @@ int      attrmax) : object_t(in, model)
 {
    int  mask;
 
-   strcpy(objtype, "plane");
+   strcpy(objtype, "sphere");
 
 /* The parser is fairly generic but the address of where to */
 /* put the data must be updated for each new object         */
 
-   sphere_parse[0].loc = &center;
-   sphere_parse[1].loc = &radius;
+   sphere_parse[0].center = &center;
+   sphere_parse[1].radius = &radius;
    mask = parser(in, sphere_parse, NUM_ATTRS, attrmax);
    assert(mask == 3);
 
