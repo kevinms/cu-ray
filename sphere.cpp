@@ -70,7 +70,7 @@ vec_t    *dir)       /* unit direction vector */
 
 
 
-static ppram_t sphere_parse[] =
+static pparm_t sphere_parse[] =
 {
    {"center",   3, 8, "%lf", 0},
    {"radius",  1, 8, "%lf", 0}
@@ -91,8 +91,8 @@ int      attrmax) : object_t(in, model)
 /* The parser is fairly generic but the address of where to */
 /* put the data must be updated for each new object         */
 
-   sphere_parse[0].center = &center;
-   sphere_parse[1].radius = &radius;
+   sphere_parse[0].loc = &center;
+   sphere_parse[1].loc = &radius;
    mask = parser(in, sphere_parse, NUM_ATTRS, attrmax);
    assert(mask == 2);
 
