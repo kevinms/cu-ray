@@ -1,5 +1,5 @@
 RAYOBJS = main.o camera.o list.o  model.o material.o object.o plane.o \
-          parser.o  image.o raytrace.o
+          parser.o  image.o raytrace.o sphere.o
 #         image.o  raytrace.o light.o  illum.o tplane.o sphere.o \
 #         parser.o ellipse.o
 
