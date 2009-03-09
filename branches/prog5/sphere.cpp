@@ -94,7 +94,7 @@ int      attrmax) : object_t(in, model)
    sphere_parse[0].loc = &center;
    sphere_parse[1].loc = &radius;
    mask = parser(in, sphere_parse, NUM_ATTRS, attrmax);
-   assert(mask == 2);
+   assert(mask == 3);
 
 //   vec_unit(radius, radius);
 //   vec_copy(radius, hitnorm);
