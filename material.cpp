@@ -1,3 +1,15 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 9, 2009
+ * Program 5
+ *
+ * Description
+ * This program parses and loads the data for the material structure.
+ * Also a dumpter function.
+ ***********************************************************************/
+ 
 /* material.c */
 
 #include "ray.h"

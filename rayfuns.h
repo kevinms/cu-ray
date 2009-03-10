@@ -1,8 +1,16 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 9, 2009
+ * Program 5
+ *
+ * Description
+ * Returns the index of the target string in the
+ * table of string pointers. return -1 on failure
+ ***********************************************************************/
+ 
 /* rayfuns.h */
-
-/**/
-/* return the index of the target string in the   */
-/* table of string pointers. return -1 on failure */
 
 static inline int table_lookup(
 char *idtab[],
