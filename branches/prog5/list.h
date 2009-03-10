@@ -1,3 +1,13 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 9, 2009
+ * Program 5
+ *
+ * Description
+ * List structures
+ ***********************************************************************/
 
 class link_t
 {

@@ -1,3 +1,15 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 9, 2009
+ * Program 5
+ *
+ * Description
+ * Find the closest object intersection on the ray based
+ * at "base" and having direction "dir" 
+ ***********************************************************************/
+ 
 /* raytrace.c */
 
 #include "ray.h"
@@ -5,9 +17,6 @@
 extern int hitid;
 extern int pix_x, pix_y;
 
-/**/
-/* Find the closest object intersection on the ray based */
-/* at "base" and having direction "dir"                  */
 
 object_t *find_closest_object(
 list_t   *list,        /* Object list       */

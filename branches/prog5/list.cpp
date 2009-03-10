@@ -1,8 +1,19 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 9, 2009
+ * Program 5
+ *
+ * Description
+ * Creates a new list header, initializes it, and returns it's address
+ ***********************************************************************/
+ 
 /* list.c */
 
 #include "list.h"
 #include "entity.h"
-#include "stdio.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 link_t::link_t(void *newentity)
@@ -14,7 +25,6 @@ link_t::link_t(void *newentity)
 link_t::~link_t(void)
 {
 	printf("destroying link_t at %p \n", this);
-	delete (e_t *)entity;
 }
 
 void link_t::set_next(link_t *new_next)

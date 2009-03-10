@@ -1,10 +1,16 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 9, 2009
+ * Program 5
+ *
+ * Description
+ * This header file contains vector definitions and inline functions
+ * for 3 - D vector and matrix operations              
+ ***********************************************************************/
+ 
 /* vector.h */
-
-/* This header file contains vector definitions and */
-/* inline functions for 3 - D vector and matrix     */
-/* operations                                       */
-
-/* Three dimensional coordinate structures */
 
 typedef struct vec_type
 {

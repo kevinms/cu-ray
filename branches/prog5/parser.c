@@ -1,9 +1,17 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 9, 2009
+ * Program 5
+ *
+ * Description
+ * Loads the values of the specified attribute
+ ***********************************************************************/
+ 
 /* parser.c */
 
 #include "ray.h"
-
-
-/* Load the values of the specified attribute */
 
 static int parser_load_attr(
 FILE    *in,
