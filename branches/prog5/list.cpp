@@ -12,7 +12,6 @@
 /* list.c */
 
 #include "list.h"
-#include "entity.h"
 #include <stdio.h>
 #include <stdlib.h>
 
