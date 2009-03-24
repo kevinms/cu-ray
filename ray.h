@@ -212,6 +212,26 @@ private:
 
 };
 
+class light_t
+{
+public:
+   light_t(){};
+   light_t(FILE *in, model_t *model, int attrmax);
+   virtual ~light_t(){};
+   virtual void getemiss(drgb_t *)
+   virtual int vischeck(vec_t *);
+   virtual void illuminate(model_t *, object_t *, drgb_t *);
+   virtual void dumper(FILE *);
+   
+protected:
+   vec_t location;
+   drgb_t emissivity;
+   char name[NAME_LEN];
+   
+private:
+   int cookie;
+};
+
 
 #include "rayfuns.h"
 #include "rayhdrs.h"
