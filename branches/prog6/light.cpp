@@ -13,16 +13,15 @@
 /* light.c */
 
 #include "ray.h"
-#define NUM_ATTRS (sizeof(light_parse) / sizeof(pparm_t))
 
 /* Parser parameter array for light attributes */
-
 static pparm_t light_parse[] =
 {
    {"location",   3, 8, "%lf", 0},
    {"emissivity",  3, 8, "%lf", 0}
 };
 
+#define NUM_ATTRS (sizeof(light_parse) / sizeof(pparm_t))
 
 void light_t::dumper(FILE *out)
 {
@@ -86,7 +85,8 @@ drgb_t      *pixel)   /* add illumination here       */
 
 /* Scale the resulting diffuse reflectivy by cos/dist     */
 
-	pix_scale(cos(hitobj->hitnorm)/dist, &diffuse, &diffuse);
+	//double soc = cos(hitobj->hitnorm)/dist;
+	pix_scale(cos, &diffuse, &diffuse);
 
 /* Add scaled value to *pixel.                            */
 
@@ -101,9 +101,15 @@ light_t::light_t(FILE *in, model_t *model, int attrmax)
 {
    int mask;
    list_t *list;
+   char attrname[NAME_LEN];
 
    fscanf(in, "%s", name);
-//   cookie = LGT_COOKIE;
+   cookie = LGT_COOKIE;
+
+   attrname[0] = 0;
+   fscanf(in, "%s", attrname);
+   assert(attrname[0] == '{');
+
 
 /* The parser is fairly generic but the address of where to */
 /* put the data must be updated for each new object         */
