@@ -67,9 +67,8 @@ vec_t    *dir,         /* direction of ray  */
 object_t *last_hit,    /* object last hit   */
 double   *retdist);
 
-void object_dump(
-FILE *out,
-list_t *list);
+void object_dump(FILE *out, list_t *list);
+void light_dump(FILE *out, model_t *model);
 
 /* == parser.c == */
 

@@ -218,7 +218,7 @@ public:
    light_t(){};
    light_t(FILE *in, model_t *model, int attrmax);
    virtual ~light_t(){};
-   virtual void getemiss(drgb_t *)
+   virtual void getemiss(drgb_t *);
    virtual int vischeck(vec_t *);
    virtual void illuminate(model_t *, object_t *, drgb_t *);
    virtual void dumper(FILE *);
