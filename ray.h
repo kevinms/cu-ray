@@ -123,6 +123,7 @@ private:
 
 class object_t
 {
+friend class light_t;
 public:
 
    object_t(){};
