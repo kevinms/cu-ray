@@ -60,6 +60,25 @@ double   *retdist)     /* dist to hit point */
    return(closest);
 }
 
+void add_diffuse(
+model_t *model,     /* object list                    */
+object_t *hitobj,   /* object that was hit by the ray */
+drgb_t   *pixel)    /* where to add intensity         */
+{
+   light_t *light;
+   list_t *list;
+   list = model->lgts;
+   light = (light_t *)list->start();
+   while (light != NULL)
+   {
+      light->illuminate(model, hitobj, pixel);
+      
+      light = (light_t *)list->get_next();
+   }
+   return;
+}
+
+
 /**/
 /* This function traces a single ray and returns the composite */
 /* intensity of the light it encounters                        */
@@ -112,6 +131,8 @@ object_t *last_hit)    /* most recently hit object           */
 /* intensity of reflected light.                    */
 
    closest->getamb(&thisray);
+
+   add_diffuse(model, closest, &thisray);
 
 /* illuminate(model, closest, &thisray); */
 

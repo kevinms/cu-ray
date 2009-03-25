@@ -53,6 +53,11 @@ drgb_t   *pix,         /* pixel     return location          */
 double   total_dist,   /* distance ray has traveled so far   */
 object_t *last_hit);
 
+void add_diffuse(
+model_t *model,     /* object list                    */
+object_t *hitobj,   /* object that was hit by the ray */
+drgb_t   *pixel);    /* where to add intensity         */
+
 /* == plane.cpp == */
 
 /* == object.cpp == */
