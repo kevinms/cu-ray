@@ -56,7 +56,8 @@ drgb_t      *pixel)   /* add illumination here       */
 	vec_diff(&location, &hitobj->hitloc, &revdir);
 /* Test the object for self-occlusion and return if occluded */
 
-	if(vec_dot(&hitobj->hitnorm, &dir) < 0 )
+	cos = vec_dot(&hitobj->hitnorm, &dir);
+	if(cos < 0 )
 		return;
 
 /* Ask find_closest_object() if a ray fired toward the light */
