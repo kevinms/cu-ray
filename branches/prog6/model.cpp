@@ -113,6 +113,6 @@ FILE          *out)
    cam->camera_dump(out);
    material_dump(out, mats);
    object_dump(out, objs);
-// light_dump(out, this);
+   light_dump(out, this);
 }
 
