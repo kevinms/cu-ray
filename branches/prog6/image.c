@@ -2,8 +2,8 @@
  * Kevin Matthew Smith && Burns John Hudson
  * kevin4 && burnsh
  * CpSc 102 Section 003
- * March 9, 2009
- * Program 5
+ * March 25, 2009
+ * Program 6
  * 
  * Description
  * This program handles the ppm image creation, making a ppm image
