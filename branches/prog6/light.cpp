@@ -40,7 +40,7 @@ object_t    *hitobj, /* The object hit by the ray    */
 drgb_t      *pixel)   /* add illumination here       */
 {
    vec_t    dir;    // unit direction to light from hitpt
-   vec_t    revdir; // unit direction from light to hitpt
+   //vec_t    revdir; // unit direction from light to hitpt
    object_t *obj;   // closest object in dir to light
    double   close;  // dist to closest object in dir to light
    double   cos;    // of angle between normal and dir to light
@@ -52,13 +52,13 @@ drgb_t      *pixel)   /* add illumination here       */
 	dist = sqrt(vec_dot(&dir, &dir));
 	vec_unit(&dir, &dir);
 
-
-	vec_diff(&location, &hitobj->hitloc, &revdir);
 /* Test the object for self-occlusion and return if occluded */
 
 	cos = vec_dot(&hitobj->hitnorm, &dir);
 	if(cos < 0 )
+	{
 		return;
+	}
 
 /* Ask find_closest_object() if a ray fired toward the light */
 /* hits a "regular" object. Pass "hitobj" as the "lasthit"   */
@@ -71,7 +71,9 @@ drgb_t      *pixel)   /* add illumination here       */
 /* closer to the hitpoint than the light is, return     */
 
 	if(obj != NULL && close < dist)
+	{
 		return;
+	}
 
 /* Arriving at this point means the light does illuminate */
 /* object. Ask hitobj->getdiff() to return diffuse        */
@@ -86,8 +88,7 @@ drgb_t      *pixel)   /* add illumination here       */
 
 /* Scale the resulting diffuse reflectivy by cos/dist     */
 
-	//double soc = cos(hitobj->hitnorm)/dist;
-	pix_scale(cos, &diffuse, &diffuse);
+	pix_scale(cos/dist, &diffuse, &diffuse);
 
 /* Add scaled value to *pixel.                            */
 
