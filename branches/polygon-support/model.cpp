@@ -20,6 +20,7 @@ static char *items[] =
     "material",
     "plane",
 	"sphere",
+	"tri",
     "light",
 #if 0
     "pplane",
@@ -55,6 +56,9 @@ char    *itemtype)
       new sphere_t(in, this, 0);
       break;
    case 4:
+      new tri_t(in, this, 0);
+      break;
+   case 5:
       new light_t(in, this, 0);
       break;
    }
