@@ -117,7 +117,7 @@ vec_t    *dir)       /* unit direction vector */
 	if(count % 2 == 0)
 		return(-1);
 
-   fprintf(stderr, "distance: %lf\n", t);
+   //fprintf(stderr, "distance: %lf\n", t);
    return(t);
 }
 
@@ -125,9 +125,9 @@ vec_t    *dir)       /* unit direction vector */
 
 static pparm_t tri_parse[] =
 {
+   {"v0",   3, 8, "%lf", 0},
    {"v1",   3, 8, "%lf", 0},
    {"v2",   3, 8, "%lf", 0},
-   {"v3",   3, 8, "%lf", 0},
 };
 
 /***/
