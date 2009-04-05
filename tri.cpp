@@ -147,13 +147,18 @@ tri_t::tri_t(FILE *in, model_t *model, int attrmax) : object_t(in, model)
    tri_parse[1].loc = &v[1];
    tri_parse[2].loc = &v[2];
    mask = parser(in, tri_parse, NUM_ATTRS, attrmax);
-   //assert(mask == 1);
+   assert(mask == 7);
+
+
 
    // finds the normal
    vec_diff(&v[0], &v[1], &tv1);
    vec_diff(&v[1], &v[2], &tv2);
    vec_cross(&tv1, &tv2, &normal);
    vec_unit(&normal, &normal);
+
+   vec_copy(&normal, &hitnorm);
+   ndotq = vec_dot(&v[0], &normal);
 }
 
 
