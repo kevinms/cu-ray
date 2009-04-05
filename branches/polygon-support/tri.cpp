@@ -47,8 +47,9 @@ vec_t    *dir)       /* unit direction vector */
 {
    double   ndotd;
    double   t, slope, dist;
-   double   ndotb;
+   double   ndotb, loc;
    int i;
+   int count = 0;
 
    ndotq = vec_dot(&normal, &v[0]);
    ndotd = vec_dot(dir, &normal);
@@ -74,7 +75,6 @@ vec_t    *dir)       /* unit direction vector */
 	vec_t vt[3];
 
 	// transpose point and hitloc so that hitloc is at the origin
-	//vec_diff(&hitloc, &hitloc, &hitloc_simp);
 	for(i = 0; i < 3; i++)
 		vec_diff(&hitloc, &v[i], &vt[i]);
 
@@ -84,32 +84,19 @@ vec_t    *dir)       /* unit direction vector */
 			v_simp[i].x = vt[i].y;
 			v_simp[i].y= vt[i].z;
 		}
-		//hitloc_simp.x = hitloc.y;
-		//hitloc_simp.y = hitloc.z;
 	}
 	if(fabs(normal.y) > fabs(normal.x) && fabs(normal.y) > fabs(normal.z)) {
 		for(i = 0; i < 3; i++) {
 			v_simp[i].x = vt[i].x;
 			v_simp[i].y= vt[i].z;
 		}
-		//hitloc_simp.x = hitloc.x;
-		//hitloc_simp.y = hitloc.z;
 	}
 	if(fabs(normal.z) > fabs(normal.x) && fabs(normal.z) > fabs(normal.y)) {
 		for(i = 0; i < 3; i++) {
 			v_simp[i].x = vt[i].x;
 			v_simp[i].y= vt[i].y;
 		}
-		//hitloc_simp.x = hitloc.x;
-		//hitloc_simp.y = hitloc.y;
 	}
-/*	vec_prn(stderr, "hitloc:  ", &normal);
-	vec_prn(stderr, "hitloc_simp:  ", &hitloc_simp);
-	vec_prn(stderr, "v_simp[0]:  ", &v_simp[0]);
-	vec_prn(stderr, "v_simp[1]:  ", &v_simp[1]);
-	vec_prn(stderr, "v_simp[2]:  ", &v_simp[2]);
-*/
-
 
 	/**************************************************************/
 	/*  preform the even/odd test between the hitloc on the plane */
@@ -117,34 +104,20 @@ vec_t    *dir)       /* unit direction vector */
 	/*  or outside the polygon                                    */
 	/**************************************************************/
 
-	int count = 0;
-	double loc;
-
-	/*
-	slope = (v[0].y - v[1].y) / (v[0].x - v[1].x);
-	dist = (v[0].x - v[1].x)*(v[0].x - v[1].x) + (v[0].y - v[1].y)*(v[0].y - v[1].y)
-	loc = (0 - v[0].y)/slope + v[0].x;
-	if(loc >= 0 && ((v[0] >= 0 && v[1] <= 0) || (v[1] >= 0 && v[0] <= 0)) {
-		count++;
-	}
-	*/
-
 	/* determine how many times a vector shot from the origin to the right
 	 * on the x axis intersects with the polygon edges */
 	for(i = 0; i < 3; i++) {
 		slope = (v_simp[i].y - v_simp[(i+1)%3].y) / (v_simp[i].x - v_simp[(i+1)%3].x);
-		//dist = (v_simp[i].x - v_simp[(i+1)%3].x)*(v_simp[i].x - v_simp[(i+1)%3].x) + (v_simp[i].y - v_simp[(i+1)%3].y)*(v_simp[i].y - v_simp[(i+1)%3].y);
 		loc = (0 - v_simp[i].y)/slope + v_simp[i].x;
-		//fprintf(stderr, "%lf\n", loc);
 		if(loc >= 0 && ((v_simp[i].y >= 0 && v_simp[(i+1)%3].y <= 0) || (v_simp[(i+1)%3].y >= 0 && v_simp[i].y <= 0))) {
 			count++;
-			//fprintf(stderr, "count: %d\n", count);
 		}
 	}
 
 	if(count % 2 == 0)
 		return(-1);
 
+   fprintf(stderr, "distance: %lf\n", t);
    return(t);
 }
 
