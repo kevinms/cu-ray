@@ -164,6 +164,7 @@ public:
    plane_t();
    plane_t(FILE *, model_t *, int);
 
+//   virtual double  get_plane_hitpoint(vec_t *base, vec_t *dir);
    virtual double  hits(vec_t *base, vec_t *dir);
    virtual void    dumper(FILE *);
 #if 0
@@ -178,6 +179,24 @@ protected:
 
 private:
    double  ndotq;
+};
+
+class tri_t: public object_t
+{
+public:
+   tri_t();
+   tri_t(FILE *, model_t *, int);
+
+   virtual double  hits(vec_t *base, vec_t *dir);
+   virtual void    dumper(FILE *);
+
+protected:
+   vec_t   normal;
+   vec_t   v[3];
+
+private:
+   double  ndotq;
+	vec_t v_simp[3], hitloc_simp;
 };
 
 
