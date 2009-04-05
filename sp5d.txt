@@ -32,7 +32,7 @@ material red
 tri testzomg
 {
    material red
-   v1  1 1 -5
-   v2  3 1 -5
-   v3  2 3 -5
+   v1  1 1 -0.1
+   v2  3 1 -0.1
+   v3  2 3 -0.1
 }
