@@ -26,7 +26,7 @@ light ceiling
 
 material red
 {
-   diffuse 4.0 1.5 1.5
+   ambient 4.0 1.5 1.5
 }
 
 tri testzomg
