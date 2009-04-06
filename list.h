@@ -1,31 +1,43 @@
+/**********************************************************************
+ * Kevin Matthew Smith && Burns John Hudson
+ * kevin4 && burnsh
+ * CpSc 102 Section 003
+ * March 25, 2009
+ * Program 6
+ *
+ * Description
+ * List structures
+ ***********************************************************************/
 
-typedef struct link_type
+class link_t
 {
-   struct link_type *next;    /* Next link in the list   */
-   void             *item;    /* Item owned by this link */
-}  link_t;
+public:
+   link_t(void);                  // default constructor
+   link_t(void *);                // overloaded constructor
+   ~link_t (void);                // destructor
+   void    set_next(link_t *);    // used in adding new link
+   link_t *get_next(void);        // retrieve the next pointer
+   void   *get_entity(void);      // retrieve entity pointer
 
-typedef struct list_type
+private:
+   link_t *next;                  // next link in the list
+   void   *entity;                // entity managed by link
+};
+
+class list_t
 {
-   link_t  *head;             /* First link in the list */
-   link_t  *tail;             /* Last link in the list  */
-}  list_t;
+public:
+   list_t(void);                  // constructor
+   ~list_t (void);                // destructor
+   void   add(void *);            // add entity to end of list
+   void   insert(void *);         // insert entity before current
+   void   remove(void );          // remove current entity
+   void   *start(void);           // set current to start of list
+   void   *get_next(void);        // advance to next element in list
 
-/* Prototypes for list management functions */
-/* malloc a new list header and initialize it */
-
-list_t *list_init(
-void);
-
-/* Add an element to the end of a list */
-
-void list_add(
-list_t *list,
-void   *entity);
-
-/* Delete all of the list control structures and */
-/* the entities they control                     */
-
-void list_del(
-list_t *list);
+private:
+   link_t *first;                 // first link
+   link_t *last;                  // last link
+   link_t *current;               // current link.
+};
 
