@@ -22,6 +22,7 @@ static char *items[] =
 	"sphere",
 	"tri",
     "light",
+	"fplane",
 #if 0
     "pplane",
     "tiled_plane",
@@ -60,6 +61,9 @@ char    *itemtype)
       break;
    case 5:
       new light_t(in, this, 0);
+      break;
+   case 6:
+      new fplane_t(in, this, 0);
       break;
    }
    return;

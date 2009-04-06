@@ -253,6 +253,27 @@ private:
 };
 
 
+class fplane_t: public plane_t
+{
+public:
+   fplane_t();
+   fplane_t(FILE *, model_t *, int);
+
+   virtual double  hits(vec_t *base, vec_t *dir);
+   virtual void    dumper(FILE *);
+
+protected:
+   vec_t  newloc;     /* last rotated hit point */
+   double dims[2];
+
+private:
+
+   mat_t  rot;        /* rotation matrix               */
+   vec_t  xdir;
+   vec_t  projxdir;   /* xdir projected onto the plane */
+};
+
+
 #include "rayfuns.h"
 #include "rayhdrs.h"
 
