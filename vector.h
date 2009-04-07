@@ -213,3 +213,11 @@ mat_t *m2)
 	vec_copy(&t.row[1], &m2->row[1]);
 	vec_copy(&t.row[2], &m2->row[2]);
 }
+
+static inline void mat_multiply(
+mat_t *m1)
+{
+	m1->row[1].x = m1->row[2].x * m1->row[0].x;
+	m1->row[1].y = m1->row[2].y * m1->row[0].y;
+	m1->row[1].z = m1->row[2].z * m1->row[0].z;
+}
