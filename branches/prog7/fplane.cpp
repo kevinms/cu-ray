@@ -66,15 +66,15 @@ int attrmax) : plane_t(in, model, 2)
 	strcpy(objtype, "fplane");
 	
 	fplane_parse[0].loc = &xdir;
-	fplane_parse[1].loc = &dimmensions;
+	fplane_parse[1].loc = &dims;
 	
-	vec_project(&normal, &xdir, &projxdir)
+	vec_project(&normal, &xdir, &projxdir);
 	
-	if(&projxdir.x == 0.0)
+	if(projxdir.x == 0.0)
 	   return(-1);
-	else if(&projxdir.y == 0.0)
+	else if(projxdir.y == 0.0)
 	   return(-1);
-	else if(&projxdir.z == 0.0)
+	else if(projxdir.z == 0.0)
 	   return(-1);
 	
 	vec_unit(&projxdir, &projxdir);
