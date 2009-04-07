@@ -19,7 +19,14 @@
 
 void fplane_t::dumper(FILE *out)
 {
+	plane_t::dumper(out); //call the regular plane dumper to
+	                      //dump the regular stuff
 	
+    fprintf(out, "%-12s %5.1lf %5.1lf\n", "dims",
+                 dims[0], dims[1]);
+	
+    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "xdir",
+                 xdir.x, xdir.y, xdir.z);
 }
 
 double fplane_t::hits(
@@ -47,6 +54,8 @@ vec_t    *dir)       /* unit direction vector */
 
 static pparm_t fplane_parse[] =
 {
+   {"xdir",    3, 8, "%lf", 0},
+   {"dimensions", 2, 8, "%lf", 0},
    {"point",   3, 8, "%lf", 0},
    {"normal",  3, 8, "%lf", 0}
 };
