@@ -51,11 +51,15 @@ vec_t    *dir)       /* unit direction vector */
 	vec_diff(&point, &hitloc, &newloct);
 	vec_xform(&rot, &newloct, &newloct);
 
+	fprintf(stderr, "%lf %lf\n", newloct.x, newloct.y);
+
 	if(0 <= newloct.x && newloct.x <= dims[0])
 	{
 		if(0 <= newloct.y && newloct.y <= dims[1])
+		{
 			vec_copy(&newloct, &newloc);
 			return(t);
+		}
 	}
 
 	return(-1);
