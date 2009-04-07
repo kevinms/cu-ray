@@ -70,7 +70,6 @@ static pparm_t fplane_parse[] =
 fplane_t::fplane_t(FILE *in, model_t *model, 
 int attrmax) : plane_t(in, model, 2)
 {
-    //mat_t *m1;
 	int mask;
 	
 	strcpy(objtype, "fplane");
@@ -83,7 +82,6 @@ int attrmax) : plane_t(in, model, 2)
 	vec_project(&normal, &xdir, &projxdir);
 	
 	assert(projxdir.x == projxdir.y == projxdir.z != 0.0);
-	//assert(projxdir.x != 0.0 && projxdir.y != 0.0 && projxdir.z != 0.0);
 	
 	vec_unit(&projxdir, &projxdir);
 	
