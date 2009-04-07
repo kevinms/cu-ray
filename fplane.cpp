@@ -26,9 +26,23 @@ double fplane_t::hits(
 vec_t    *base,      /* ray base              */
 vec_t    *dir)       /* unit direction vector */
 {
-   vec_t newloc;
-   double t;
+	vec_t newloc;
+	double t;
 
+	t = plane_t::hits(base, dir);
+
+	if(t == -1)
+		return(-1);
+
+	vec_diff(point, hitloc, newloc);
+	//vec_xform(rot, , );
+	vec_xform(rot, newloc, newloc);
+
+	if(0 <= newloc.x && newloc.x <= dims[0])
+	{
+		if(0 <= newloc.y && newloc.y <= dims[1])
+			return(-1);
+	}
 }
 
 static pparm_t fplane_parse[] =
