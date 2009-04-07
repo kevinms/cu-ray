@@ -24,16 +24,23 @@ void fplane_t::dumper(FILE *out)
 	
     fprintf(out, "%-12s %5.1lf %5.1lf\n", "dims",
                  dims[0], dims[1]);
-	
-    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "xdir",
+	fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "xdir",
                  xdir.x, xdir.y, xdir.z);
+    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "projxdir",
+                 projxdir.x, projxdir.y, projxdir.z);
+    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "rot.row[0]",
+                 rot.row[0].x, rot.row[0].y, rot.row[0].z);
+    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "rot.row[1]",
+                 rot.row[1].x, rot.row[1].y, rot.row[1].z);
+    fprintf(out, "%-12s %5.1lf %5.1lf %5.1lf\n", "rot.row[2]",
+                 rot.row[2].x, rot.row[2].y, rot.row[2].z);
 }
 
 double fplane_t::hits(
 vec_t    *base,      /* ray base              */
 vec_t    *dir)       /* unit direction vector */
 {
-	vec_t newloc;
+	vec_t newloct;
 	double t;
 
 	t = plane_t::hits(base, dir);
@@ -41,15 +48,17 @@ vec_t    *dir)       /* unit direction vector */
 	if(t == -1)
 		return(-1);
 
-	vec_diff(point, hitloc, newloc);
-	//vec_xform(rot, , );
-	vec_xform(rot, newloc, newloc);
+	vec_diff(&point, &hitloc, &newloct);
+	vec_xform(&rot, &newloct, &newloct);
 
-	if(0 <= newloc.x && newloc.x <= dims[0])
+	if(0 <= newloct.x && newloct.x <= dims[0])
 	{
-		if(0 <= newloc.y && newloc.y <= dims[1])
-			return(-1);
+		if(0 <= newloct.y && newloct.y <= dims[1])
+			vec_copy(&newloct, &newloc);
+			return(t);
 	}
+
+	return(-1);
 }
 
 static pparm_t fplane_parse[] =
@@ -61,26 +70,24 @@ static pparm_t fplane_parse[] =
 fplane_t::fplane_t(FILE *in, model_t *model, 
 int attrmax) : plane_t(in, model, 2)
 {
-    mat_t *m1;
+    //mat_t *m1;
+	int mask;
 	
 	strcpy(objtype, "fplane");
 	
 	fplane_parse[0].loc = &xdir;
 	fplane_parse[1].loc = &dims;
+	mask = parser(in, fplane_parse, NUM_ATTRS, attrmax);
+	assert(mask == 3);
 	
 	vec_project(&normal, &xdir, &projxdir);
 	
-	if(projxdir.x == 0.0)
-	   return(-1);
-	else if(projxdir.y == 0.0)
-	   return(-1);
-	else if(projxdir.z == 0.0)
-	   return(-1);
+	assert(projxdir.x == 0.0 && projxdir.y == 0.0 && projxdir.z == 0.0);
 	
 	vec_unit(&projxdir, &projxdir);
 	
-	vec_copy (&projxdir, &rot->rot[0]);
-	vec_copy (&normal, &rot->rot[2]);
+	vec_copy (&projxdir, &rot.row[0]);
+	vec_copy (&normal, &rot.row[2]);
 	
-	mat_multiply(&rot);
+	vec_mult(&rot.row[0], &rot.row[2], &rot.row[1]);
 }
