@@ -46,7 +46,7 @@ vec_t    *base,      /* ray base              */
 vec_t    *dir)       /* unit direction vector */
 {
    double   ndotd;
-   double   t, slope, dist;
+   double   t, slope;
    double   ndotb, loc;
    int i;
    int count = 0;
