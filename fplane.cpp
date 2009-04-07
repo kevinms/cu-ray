@@ -82,7 +82,8 @@ int attrmax) : plane_t(in, model, 2)
 	
 	vec_project(&normal, &xdir, &projxdir);
 	
-	assert(projxdir.x == 0.0 && projxdir.y == 0.0 && projxdir.z == 0.0);
+	assert(projxdir.x == projxdir.y == projxdir.z != 0.0);
+	//assert(projxdir.x != 0.0 && projxdir.y != 0.0 && projxdir.z != 0.0);
 	
 	vec_unit(&projxdir, &projxdir);
 	
