@@ -51,7 +51,7 @@ vec_t    *dir)       /* unit direction vector */
 	vec_diff(&point, &hitloc, &newloct);
 	vec_xform(&rot, &newloct, &newloct);
 
-	fprintf(stderr, "%lf %lf\n", newloct.x, newloct.y);
+	//fprintf(stderr, "%lf %lf\n", newloct.x, newloct.y);
 
 	if(0 <= newloct.x && newloct.x <= dims[0])
 	{
