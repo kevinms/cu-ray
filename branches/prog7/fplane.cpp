@@ -33,21 +33,54 @@ double fplane_t::hits(
 vec_t    *base,      /* ray base              */
 vec_t    *dir)       /* unit direction vector */
 {
-   vec_t newloc;
-   double t;
+	vec_t newloc;
+	double t;
 
+	t = plane_t::hits(base, dir);
+
+	if(t == -1)
+		return(-1);
+
+	vec_diff(point, hitloc, newloc);
+	//vec_xform(rot, , );
+	vec_xform(rot, newloc, newloc);
+
+	if(0 <= newloc.x && newloc.x <= dims[0])
+	{
+		if(0 <= newloc.y && newloc.y <= dims[1])
+			return(-1);
+	}
 }
 
 static pparm_t fplane_parse[] =
 {
    {"xdir",    3, 8, "%lf", 0},
-   {"dimensions", 2, 8, "%lf", 0},
-   {"point",   3, 8, "%lf", 0},
-   {"normal",  3, 8, "%lf", 0}
+   {"dimensions", 2, 8, "%lf", 0}
 };
 
 fplane_t::fplane_t(FILE *in, model_t *model, 
 int attrmax) : plane_t(in, model, 2)
 {
+    mat_t *m1;
 	
+	strcpy(objtype, "fplane");
+	
+	fplane_parse[0].loc = &xdir;
+	fplane_parse[1].loc = &dimmensions;
+	
+	vec_project(&normal, &xdir, &projxdir)
+	
+	if(&projxdir.x == 0.0)
+	   return(-1);
+	else if(&projxdir.y == 0.0)
+	   return(-1);
+	else if(&projxdir.z == 0.0)
+	   return(-1);
+	
+	vec_unit(&projxdir, &projxdir);
+	
+	vec_copy (&projxdir, &rot->rot[0]);
+	vec_copy (&normal, &rot->rot[2]);
+	
+	mat_multiply(&rot);
 }
