@@ -51,8 +51,6 @@ vec_t    *dir)       /* unit direction vector */
 	vec_diff(&point, &hitloc, &newloct);
 	vec_xform(&rot, &newloct, &newloct);
 
-	//fprintf(stderr, "%lf %lf\n", newloct.x, newloct.y);
-
 	if(0 <= newloct.x && newloct.x <= dims[0])
 	{
 		if(0 <= newloct.y && newloct.y <= dims[1])
@@ -83,14 +81,16 @@ int attrmax) : plane_t(in, model, 2)
 	mask = parser(in, fplane_parse, NUM_ATTRS, attrmax);
 	assert(mask == 3);
 	
+	vec_unit(&normal, &normal);
 	vec_project(&normal, &xdir, &projxdir);
 	
-	assert(projxdir.x == projxdir.y == projxdir.z != 0.0);
+	if(projxdir.x == projxdir.y == projxdir.z)
+		assert(projxdir.x != 0.0);
 	
 	vec_unit(&projxdir, &projxdir);
 	
 	vec_copy (&projxdir, &rot.row[0]);
 	vec_copy (&normal, &rot.row[2]);
 	
-	vec_mult(&rot.row[0], &rot.row[2], &rot.row[1]);
+	vec_cross(&rot.row[2], &rot.row[0], &rot.row[1]);
 }
